@@ -7,21 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1FE1B97C1D542A5F003545ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B97B1D542A5F003545ED /* AppDelegate.swift */; };
-		1FE1B97E1D542A5F003545ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B97D1D542A5F003545ED /* ViewController.swift */; };
-		1FE1B9811D542A5F003545ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B97F1D542A5F003545ED /* Main.storyboard */; };
-		1FE1B9831D542A5F003545ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B9821D542A5F003545ED /* Assets.xcassets */; };
 		1FE1B9861D542A5F003545ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B9841D542A5F003545ED /* LaunchScreen.storyboard */; };
+		1FE1B98F1D542AB1003545ED /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B98E1D542AB1003545ED /* ApiService.swift */; };
+		1FE1B9911D542AB9003545ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9901D542AB9003545ED /* AppDelegate.swift */; };
+		1FE1B9931D542AC3003545ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B9921D542AC3003545ED /* Assets.xcassets */; };
+		1FE1B9951D542AD8003545ED /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9941D542AD8003545ED /* ChatLogController.swift */; };
+		1FE1B9991D542AE1003545ED /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9961D542AE1003545ED /* ChatMessageCell.swift */; };
+		1FE1B99A1D542AE1003545ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9971D542AE1003545ED /* Extensions.swift */; };
+		1FE1B99B1D542AE1003545ED /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9981D542AE1003545ED /* FeedCell.swift */; };
+		1FE1B9A31D542AF6003545ED /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B99C1D542AF6003545ED /* LoginController.swift */; };
+		1FE1B9A41D542AF6003545ED /* LoginController+handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B99D1D542AF6003545ED /* LoginController+handler.swift */; };
+		1FE1B9A51D542AF6003545ED /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B99E1D542AF6003545ED /* MenuBar.swift */; };
+		1FE1B9A61D542AF6003545ED /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B99F1D542AF6003545ED /* Message.swift */; };
+		1FE1B9A71D542AF6003545ED /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9A01D542AF6003545ED /* MessagesController.swift */; };
+		1FE1B9A81D542AF6003545ED /* MessagingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9A11D542AF6003545ED /* MessagingExtensions.swift */; };
+		1FE1B9A91D542AF6003545ED /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9A21D542AF6003545ED /* NewMessageController.swift */; };
+		1FE1B9AD1D542B02003545ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9AB1D542B02003545ED /* ProfileViewController.swift */; };
+		1FE1B9B61D542B12003545ED /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9AE1D542B12003545ED /* SettingCell.swift */; };
+		1FE1B9B71D542B12003545ED /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9AF1D542B12003545ED /* SettingsLauncher.swift */; };
+		1FE1B9B81D542B12003545ED /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B01D542B12003545ED /* SubscriptionCell.swift */; };
+		1FE1B9B91D542B12003545ED /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B11D542B12003545ED /* TrendingCell.swift */; };
+		1FE1B9BA1D542B12003545ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B21D542B12003545ED /* User.swift */; };
+		1FE1B9BB1D542B12003545ED /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B31D542B12003545ED /* UserCell.swift */; };
+		1FE1B9BC1D542B12003545ED /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B41D542B12003545ED /* Video.swift */; };
+		1FE1B9BD1D542B12003545ED /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B51D542B12003545ED /* VideoCell.swift */; };
+		1FE1B9BF1D542E38003545ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B9BE1D542E38003545ED /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1FE1B9781D542A5F003545ED /* PlayerGround X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlayerGround X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1FE1B97B1D542A5F003545ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1FE1B97D1D542A5F003545ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1FE1B9801D542A5F003545ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1FE1B9821D542A5F003545ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FE1B9851D542A5F003545ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FE1B9871D542A5F003545ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FE1B98E1D542AB1003545ED /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		1FE1B9901D542AB9003545ED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1FE1B9921D542AC3003545ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1FE1B9941D542AD8003545ED /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		1FE1B9961D542AE1003545ED /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		1FE1B9971D542AE1003545ED /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1FE1B9981D542AE1003545ED /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		1FE1B99C1D542AF6003545ED /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		1FE1B99D1D542AF6003545ED /* LoginController+handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+handler.swift"; sourceTree = "<group>"; };
+		1FE1B99E1D542AF6003545ED /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		1FE1B99F1D542AF6003545ED /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		1FE1B9A01D542AF6003545ED /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
+		1FE1B9A11D542AF6003545ED /* MessagingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingExtensions.swift; sourceTree = "<group>"; };
+		1FE1B9A21D542AF6003545ED /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
+		1FE1B9AB1D542B02003545ED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1FE1B9AE1D542B12003545ED /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		1FE1B9AF1D542B12003545ED /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
+		1FE1B9B01D542B12003545ED /* SubscriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
+		1FE1B9B11D542B12003545ED /* TrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
+		1FE1B9B21D542B12003545ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1FE1B9B31D542B12003545ED /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		1FE1B9B41D542B12003545ED /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		1FE1B9B51D542B12003545ED /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		1FE1B9BE1D542E38003545ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2D6C01B66127982B601E42E9 /* Pods-PlayerGround X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerGround X.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerGround X/Pods-PlayerGround X.debug.xcconfig"; sourceTree = "<group>"; };
+		6704112A92F32AC24DFF59E8 /* Pods-PlayerGround X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerGround X.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerGround X/Pods-PlayerGround X.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,11 +77,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0101B7EA0510DC9DFECBF0E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1FE1B96F1D542A5F003545ED = {
 			isa = PBXGroup;
 			children = (
+				1FE1B98E1D542AB1003545ED /* ApiService.swift */,
+				1FE1B9961D542AE1003545ED /* ChatMessageCell.swift */,
+				1FE1B9971D542AE1003545ED /* Extensions.swift */,
+				1FE1B99C1D542AF6003545ED /* LoginController.swift */,
+				1FE1B99D1D542AF6003545ED /* LoginController+handler.swift */,
+				1FE1B99E1D542AF6003545ED /* MenuBar.swift */,
+				1FE1B9AB1D542B02003545ED /* ProfileViewController.swift */,
+				1FE1B99F1D542AF6003545ED /* Message.swift */,
+				1FE1B9A01D542AF6003545ED /* MessagesController.swift */,
+				1FE1B9A11D542AF6003545ED /* MessagingExtensions.swift */,
+				1FE1B9A21D542AF6003545ED /* NewMessageController.swift */,
+				1FE1B9AE1D542B12003545ED /* SettingCell.swift */,
+				1FE1B9AF1D542B12003545ED /* SettingsLauncher.swift */,
+				1FE1B9B01D542B12003545ED /* SubscriptionCell.swift */,
+				1FE1B9B11D542B12003545ED /* TrendingCell.swift */,
+				1FE1B9B21D542B12003545ED /* User.swift */,
+				1FE1B9B31D542B12003545ED /* UserCell.swift */,
+				1FE1B9B41D542B12003545ED /* Video.swift */,
+				1FE1B9B51D542B12003545ED /* VideoCell.swift */,
+				1FE1B9981D542AE1003545ED /* FeedCell.swift */,
+				1FE1B9941D542AD8003545ED /* ChatLogController.swift */,
+				1FE1B9901D542AB9003545ED /* AppDelegate.swift */,
+				1FE1B9921D542AC3003545ED /* Assets.xcassets */,
 				1FE1B97A1D542A5F003545ED /* PlayerGround X */,
 				1FE1B9791D542A5F003545ED /* Products */,
+				E0605D27D1AA925CEE0FB19D /* Pods */,
+				0101B7EA0510DC9DFECBF0E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +128,20 @@
 		1FE1B97A1D542A5F003545ED /* PlayerGround X */ = {
 			isa = PBXGroup;
 			children = (
-				1FE1B97B1D542A5F003545ED /* AppDelegate.swift */,
-				1FE1B97D1D542A5F003545ED /* ViewController.swift */,
-				1FE1B97F1D542A5F003545ED /* Main.storyboard */,
-				1FE1B9821D542A5F003545ED /* Assets.xcassets */,
 				1FE1B9841D542A5F003545ED /* LaunchScreen.storyboard */,
+				1FE1B9BE1D542E38003545ED /* GoogleService-Info.plist */,
 				1FE1B9871D542A5F003545ED /* Info.plist */,
 			);
 			path = "PlayerGround X";
+			sourceTree = "<group>";
+		};
+		E0605D27D1AA925CEE0FB19D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D6C01B66127982B601E42E9 /* Pods-PlayerGround X.debug.xcconfig */,
+				6704112A92F32AC24DFF59E8 /* Pods-PlayerGround X.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +151,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1FE1B98A1D542A5F003545ED /* Build configuration list for PBXNativeTarget "PlayerGround X" */;
 			buildPhases = (
+				8C6FB7F93A14D375A8FB6B47 /* [CP] Check Pods Manifest.lock */,
 				1FE1B9741D542A5F003545ED /* Sources */,
 				1FE1B9751D542A5F003545ED /* Frameworks */,
 				1FE1B9761D542A5F003545ED /* Resources */,
+				60153B7D077CC25514D124B6 /* [CP] Embed Pods Frameworks */,
+				51E01C950A770553DCCAD99E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,34 +206,94 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FE1B9861D542A5F003545ED /* LaunchScreen.storyboard in Resources */,
-				1FE1B9831D542A5F003545ED /* Assets.xcassets in Resources */,
-				1FE1B9811D542A5F003545ED /* Main.storyboard in Resources */,
+				1FE1B9931D542AC3003545ED /* Assets.xcassets in Resources */,
+				1FE1B9BF1D542E38003545ED /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		51E01C950A770553DCCAD99E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlayerGround X/Pods-PlayerGround X-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60153B7D077CC25514D124B6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PlayerGround X/Pods-PlayerGround X-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C6FB7F93A14D375A8FB6B47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1FE1B9741D542A5F003545ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FE1B97E1D542A5F003545ED /* ViewController.swift in Sources */,
-				1FE1B97C1D542A5F003545ED /* AppDelegate.swift in Sources */,
+				1FE1B99A1D542AE1003545ED /* Extensions.swift in Sources */,
+				1FE1B9951D542AD8003545ED /* ChatLogController.swift in Sources */,
+				1FE1B9A81D542AF6003545ED /* MessagingExtensions.swift in Sources */,
+				1FE1B9B81D542B12003545ED /* SubscriptionCell.swift in Sources */,
+				1FE1B9B71D542B12003545ED /* SettingsLauncher.swift in Sources */,
+				1FE1B9B91D542B12003545ED /* TrendingCell.swift in Sources */,
+				1FE1B9BC1D542B12003545ED /* Video.swift in Sources */,
+				1FE1B9991D542AE1003545ED /* ChatMessageCell.swift in Sources */,
+				1FE1B9BA1D542B12003545ED /* User.swift in Sources */,
+				1FE1B9A71D542AF6003545ED /* MessagesController.swift in Sources */,
+				1FE1B9911D542AB9003545ED /* AppDelegate.swift in Sources */,
+				1FE1B98F1D542AB1003545ED /* ApiService.swift in Sources */,
+				1FE1B9BD1D542B12003545ED /* VideoCell.swift in Sources */,
+				1FE1B9A51D542AF6003545ED /* MenuBar.swift in Sources */,
+				1FE1B99B1D542AE1003545ED /* FeedCell.swift in Sources */,
+				1FE1B9B61D542B12003545ED /* SettingCell.swift in Sources */,
+				1FE1B9A61D542AF6003545ED /* Message.swift in Sources */,
+				1FE1B9A41D542AF6003545ED /* LoginController+handler.swift in Sources */,
+				1FE1B9AD1D542B02003545ED /* ProfileViewController.swift in Sources */,
+				1FE1B9A31D542AF6003545ED /* LoginController.swift in Sources */,
+				1FE1B9A91D542AF6003545ED /* NewMessageController.swift in Sources */,
+				1FE1B9BB1D542B12003545ED /* UserCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1FE1B97F1D542A5F003545ED /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1FE1B9801D542A5F003545ED /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1FE1B9841D542A5F003545ED /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -247,19 +390,24 @@
 		};
 		1FE1B98B1D542A5F003545ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D6C01B66127982B601E42E9 /* Pods-PlayerGround X.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "PlayerGround X/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlayerGround.PlayerGround-X";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1FE1B98C1D542A5F003545ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6704112A92F32AC24DFF59E8 /* Pods-PlayerGround X.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "PlayerGround X/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlayerGround.PlayerGround-X";
@@ -286,6 +434,7 @@
 				1FE1B98C1D542A5F003545ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
