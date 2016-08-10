@@ -49,9 +49,10 @@ class ApiService: NSObject {
             }.resume()
     }
 
-    
+
 }
 
+//
 //let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
 //
 //var videos = [Video]()
@@ -76,18 +77,18 @@ class ApiService: NSObject {
 //dispatch_async(dispatch_get_main_queue(), {
 //    completion(videos)
 //})
-
-
-
-
-//                    let numbersArray = [1, 2, 3]
-//                    let doubledNumbersArray = numbersArray.map({return $0 * 2})
-//                    let stringsArray = numbersArray.map({return "\($0 * 2)"})
-//                    print(stringsArray)
-
-//                    var videos = [Video]()
 //
-//                    for dictionary in jsonDictionaries {
-//                        let video = Video(dictionary: dictionary)
-//                        videos.append(video)
-//                    }
+//
+//
+//let numbersArray = [1, 2, 3]
+//let doubledNumbersArray = numbersArray.map({return $0 * 2})
+//let stringsArray = numbersArray.map({return "\($0 * 2)"})
+//print(stringsArray)
+//
+//var videos = [Video]()
+//
+//for dictionary in jsonDictionaries {
+//    let video = Video(dictionary: dictionary)
+//    videos.append(video)
+//}
+

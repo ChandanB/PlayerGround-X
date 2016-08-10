@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import SwiftBomb
 
 
 @UIApplicationMain
@@ -32,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // get rid of black bar underneath navbar
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        
-        application.statusBarStyle = .LightContent
         
         let statusBarBackgroundView = UIView()
         statusBarBackgroundView.backgroundColor = UIColor.rgb(90, green: 151, blue: 213)

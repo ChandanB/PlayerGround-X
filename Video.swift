@@ -11,6 +11,8 @@ import Firebase
 
 class SafeJsonObject: NSObject {
     
+    
+    
     override func setValue(value: AnyObject?, forKey key: String) {
         let uppercasedFirstCharacter = String(key.characters.first!).uppercaseString
         

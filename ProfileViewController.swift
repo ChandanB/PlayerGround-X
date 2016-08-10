@@ -11,15 +11,16 @@ import Firebase
 import SwiftBomb
 
 
+
 class ProfileViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
 
-    
+   
         let cellId = "cellId"
         let trendingCellId = "trendingCellId"
         let subscriptionCellId = "subscriptionCellId"
         
-        let titles = [" Profile", "Trending", "Subscriptions", "Account"]
+        let titles = [" Home", "Trending", "Subscriptions", "Account"]
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -29,7 +30,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             
             navigationController?.navigationBar.tintColor = UIColor.blackColor()
             let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.width - 32, view.frame.height))
-            titleLabel.text = "  Profile"
+            titleLabel.text = "  Home"
             titleLabel.textColor = UIColor.whiteColor()
             titleLabel.font = UIFont.systemFontOfSize(20)
             navigationItem.titleView = titleLabel
@@ -41,6 +42,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             setupMenuBar()
             setupNavBarButtons()
         }
+    
         
         func setupCollectionView() {
             if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {

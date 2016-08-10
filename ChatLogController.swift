@@ -112,7 +112,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         self.inputTextField.heightAnchor.constraintEqualToAnchor(containerView.heightAnchor).active = true
         
         let separatorLineView = UIView()
-        separatorLineView.backgroundColor = UIColor(r: 178, g: 178, b: 178)
+        separatorLineView.backgroundColor = UIColor(r: 220, g: 220, b: 220)
         separatorLineView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(separatorLineView)
         //x,y,w,h
@@ -296,6 +296,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         cell.chatLogController = self
         
         let message = messages[indexPath.item]
+        
+        cell.message = message
+        
         cell.textView.text = message.text
         
         setupCell(cell, message: message)
@@ -309,6 +312,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             cell.bubbleWidthAnchor?.constant = 200
             cell.textView.hidden = true
         }
+        
+        cell.playButton.hidden = message.videoUrl == nil
         
         return cell
     }

@@ -10,14 +10,30 @@
 import UIKit
 import Firebase
 
-class NewMessageController: UITableViewController {
+class NewMessageController: UITableViewController, UISearchBarDelegate{
+    
+    var dataArray = [String]()
+    
+    var filteredArray = [String]()
+    
+    var shouldShowSearchResults = true
     
     let cellId = "cellId"
     
     var users = [User]()
     
+    lazy var searchBar:UISearchBar = UISearchBar()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.searchBarStyle = UISearchBarStyle.Prominent
+        searchBar.placeholder = " Search..."
+        searchBar.sizeToFit()
+        searchBar.translucent = false
+        searchBar.backgroundImage = UIImage()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(handleCancel))
         
@@ -26,8 +42,11 @@ class NewMessageController: UITableViewController {
         fetchUser()
     }
     
+    
+    
     func fetchUser() {
-        FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
+        
+    FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let user = User()
