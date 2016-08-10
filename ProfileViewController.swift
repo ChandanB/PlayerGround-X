@@ -25,6 +25,8 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            
+            
             let configuration = SwiftBombConfig(apiKey: "8e2731b28614f3c3a1530f6780a7f18e259aff59", urlRequestCachePolicy: .UseProtocolCachePolicy)
             SwiftBomb.configure(configuration)
             
@@ -43,7 +45,7 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
             setupNavBarButtons()
         }
     
-        
+    
         func setupCollectionView() {
             if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
                 flowLayout.scrollDirection = .Horizontal

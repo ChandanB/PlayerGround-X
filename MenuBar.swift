@@ -66,11 +66,11 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         
 //        print(indexPath.item)
 //        let x = CGFloat(indexPath.item) * frame.width / 4
-//        horizontalBarLeftAnchorConstraint?.constant = x
+//     horizontalBarLeftAnchorConstraint?.constant = x
 //        
-//        UIView.animateWithDuration(0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: { 
+//      UIView.animateWithDuration(0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
 //            self.layoutIfNeeded()
-//            }, completion: nil)
+//           }, completion: nil)
         
         profileController?.scrollToMenuIndex(indexPath.item)
     }
