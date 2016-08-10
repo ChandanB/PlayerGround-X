@@ -68,7 +68,11 @@ class CustomImageView: UIImageView {
     
 }
 
-
+extension NewMessageController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
 
 
 

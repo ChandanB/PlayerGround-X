@@ -10,30 +10,29 @@
 import UIKit
 import Firebase
 
-class NewMessageController: UITableViewController, UISearchBarDelegate{
+
+
+
+class NewMessageController: UITableViewController, UISearchBarDelegate {
     
-    var dataArray = [String]()
-    
-    var filteredArray = [String]()
-    
-    var shouldShowSearchResults = true
+   
+    let searchController = UISearchController(searchResultsController: nil)
     
     let cellId = "cellId"
-    
     var users = [User]()
+    var filteredUsers = [User]()
     
-    lazy var searchBar:UISearchBar = UISearchBar()
-    
-    override func viewDidLoad() {
+       override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.searchBarStyle = UISearchBarStyle.Prominent
-        searchBar.placeholder = " Search..."
-        searchBar.sizeToFit()
-        searchBar.translucent = false
-        searchBar.backgroundImage = UIImage()
-        searchBar.delegate = self
-        navigationItem.titleView = searchBar
+        var usersIdName = [
+            User(id: nil, name: nil, email: nil, profileImageUrl: nil)
+        ]
+    
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(handleCancel))
         
@@ -42,14 +41,12 @@ class NewMessageController: UITableViewController, UISearchBarDelegate{
         fetchUser()
     }
     
-    
-    
     func fetchUser() {
         
     FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let user = User()
+                let user = User(id: nil, name: nil, email: nil, profileImageUrl: nil)
                 user.id = snapshot.key
                 
                 //if you use this setter, your app will crash if your class properties don't exactly match up with the firebase dictionary keys
@@ -71,23 +68,39 @@ class NewMessageController: UITableViewController, UISearchBarDelegate{
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredUsers = users.filter { users in
+            return users.name!.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            if searchController.active && searchController.searchBar.text != "" {
+                return filteredUsers.count
+            }
         return users.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! UserCell
-        
-        let user = users[indexPath.row]
-        cell.textLabel?.text = user.name
-        cell.detailTextLabel?.text = user.email
-        
+        let user: User
+        if searchController.active && searchController.searchBar.text != "" {
+            user = filteredUsers[indexPath.row]
+        } else {
+            user = users[indexPath.row]
+        }
+            cell.textLabel?.text = user.name
+            cell.detailTextLabel?.text = user.email
         if let profileImageUrl = user.profileImageUrl {
             cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
         }
-        
         return cell
     }
+    
+    
+    
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 72

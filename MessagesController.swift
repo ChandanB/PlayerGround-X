@@ -165,7 +165,7 @@ class MessagesController: UITableViewController {
                 return
             }
             
-            let user = User()
+            let user = User(id: nil, name: nil, email: nil, profileImageUrl: nil)
             user.id = chatPartnerId
             user.setValuesForKeysWithDictionary(dictionary)
             self.showChatControllerForUser(user)
@@ -199,7 +199,7 @@ class MessagesController: UITableViewController {
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 //                self.navigationItem.title = dictionary["name"] as? String
                 
-                let user = User()
+                let user = User(id: nil, name: nil, email: nil, profileImageUrl: nil)
                 user.setValuesForKeysWithDictionary(dictionary)
                 self.setupNavBarWithUser(user)
             }
