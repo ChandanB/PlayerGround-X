@@ -13,7 +13,7 @@ import Firebase
 
 
 
-class NewMessageController: UITableViewController, UISearchBarDelegate {
+class NewMessageController: UITableViewController {
     
    
     let searchController = UISearchController(searchResultsController: nil)
@@ -25,14 +25,17 @@ class NewMessageController: UITableViewController, UISearchBarDelegate {
        override func viewDidLoad() {
         super.viewDidLoad()
         
-        var usersIdName = [
-            User(id: nil, name: nil, email: nil, profileImageUrl: nil)
-        ]
-    
+        
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
+        searchController.searchBar.scopeButtonTitles = ["All", "Name"]
+        searchController.searchBar.delegate = self
+        searchController.searchBar.tintColor = UIColor.rgb(90, green: 151, blue: 213)
+       
+
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(handleCancel))
         
@@ -99,9 +102,7 @@ class NewMessageController: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
-    
-    
-    
+
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 72
     }
@@ -115,14 +116,30 @@ class NewMessageController: UITableViewController, UISearchBarDelegate {
             self.messagesController?.showChatControllerForUser(user)
         }
     }
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let user: User
+                if searchController.active && searchController.searchBar.text != "" {
+                    user = filteredUsers[indexPath.row]
+                } else {
+                    user = self.users[indexPath.row]
+                }
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! ChatLogController
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
+    }
+
 }
 
 
-
-
-
-
+extension NewMessageController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
+}
 
 
 

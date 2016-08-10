@@ -59,8 +59,8 @@ class MessagesController: UITableViewController {
                 self.attemptReloadOfTable()
                 
                 //                //this is one way of updating the table, but its actually not that safe..
-                //                self.messages.removeAtIndex(indexPath.row)
-                //                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                 // self.messages.removeAtIndex(indexPath.row)
+                 // self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                 
             })
         }
