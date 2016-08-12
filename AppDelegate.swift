@@ -9,16 +9,29 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import SwiftBomb
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
+    
+    internal static func configure(configuration: SwiftBombConfig) {
+    
+    let configuration = SwiftBombConfig(apiKey: "8e2731b28614f3c3a1530f6780a7f18e259aff59", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent", urlRequestCachePolicy: .UseProtocolCachePolicy)
+    
+    SwiftBomb.configure(configuration)
+        
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        
+        
         FIRApp.configure()
+        
+        
         
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self

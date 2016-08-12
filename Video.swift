@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
     
+import UIKit
+
 class SafeJsonObject: NSObject {
-    
     
     override func setValue(value: AnyObject?, forKey key: String) {
         let uppercasedFirstCharacter = String(key.characters.first!).uppercaseString
@@ -32,10 +33,6 @@ class SafeJsonObject: NSObject {
 
 class Video: SafeJsonObject {
     
-    var id: String?
-    var name: String?
-    var email: String?
-    var profileImageUrl: String?
     var thumbnail_image_name: String?
     var title: String?
     var number_of_views: NSNumber?
@@ -61,6 +58,7 @@ class Video: SafeJsonObject {
     
 }
 
-class Channel: User {
+class Channel: SafeJsonObject {
+    var name: String?
     var profile_image_name: String?
 }

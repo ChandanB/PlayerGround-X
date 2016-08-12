@@ -10,10 +10,22 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
+class TabBarController: UITabBarController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "Messages"
+        print("Messages loaded")
+    }
+}
+
+
+
 class MessagesController: UITableViewController {
     
     let cellId = "cellId"
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +45,8 @@ class MessagesController: UITableViewController {
         
         tableView.allowsMultipleSelectionDuringEditing = true
         
+        TabBarController()
+
         //     observeMessages()
     }
     

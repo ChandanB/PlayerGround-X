@@ -11,7 +11,7 @@ import Firebase
 import SwiftBomb
 
 class UserProfileController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     let cellId = "cellId"
     var user: User? {
         didSet {
@@ -24,11 +24,28 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let url = NSURL(string: "http://ign.com")
+        
+        if url != nil {
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) -> Void in
+                print(data)
+                
+                if error == nil {
+                    
+                    let urlContent = NSString(data: data!, encoding: NSASCIIStringEncoding) as NSString!
+                    
+                    print(urlContent)
+                }
+            })
+            task.resume()
+        }
+
+        
         navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.width - 32, view.frame.height))
-        titleLabel.text = "  PlayerGround"
+        let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.width - 52, view.frame.height))
+        titleLabel.text = "  Profile"
         titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.font = UIFont.systemFontOfSize(20)
+        titleLabel.font = UIFont.systemFontOfSize(28)
         navigationItem.titleView = titleLabel
         
         let statusBarBackgroundView = UIView()
@@ -48,14 +65,11 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
         collectionView?.backgroundColor = UIColor.rgb(170, green: 170, blue: 170)
         collectionView?.registerClass(FeedCell.self, forCellWithReuseIdentifier: cellId)
         
-        collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
-        collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0)
-        
-        collectionView?.pagingEnabled = true
+        collectionView?.pagingEnabled = false
     }
     
     func handleSearch() {
-        scrollToMenuIndex(2)
+        scrollToMenuIndex(1)
     }
     
     func scrollToMenuIndex(menuIndex: Int) {
@@ -73,11 +87,11 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
     private func setupMenuBar() {
         
         
-        let blueView = UIView()
-        blueView.backgroundColor = UIColor.rgb(170, green: 170, blue: 170)
-        view.addSubview(blueView)
-        view.addConstraintsWithFormat("H:|[v0]|", views: blueView)
-        view.addConstraintsWithFormat("V:[v0]", views: blueView)
+        let grayView = UIView()
+        grayView.backgroundColor = UIColor.rgb(170, green: 170, blue: 170)
+        view.addSubview(grayView)
+        view.addConstraintsWithFormat("H:|[v0]|", views: grayView)
+        view.addConstraintsWithFormat("V:[v0]", views: grayView)
         
         view.addSubview(menuBar)
         view.addConstraintsWithFormat("H:|[v0]|", views: menuBar)
@@ -87,7 +101,7 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
-        menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 4
+        menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 1
     }
     
     override func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -100,7 +114,7 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
