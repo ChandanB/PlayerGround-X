@@ -65,6 +65,9 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Profile", style: .Plain, target: self, action: #selector(showUserProfileController))
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.blackColor()
+
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         //        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         collectionView?.alwaysBounceVertical = true
@@ -74,6 +77,13 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         collectionView?.keyboardDismissMode = .Interactive
         
         setupKeyboardObservers()
+    }
+    
+    func showUserProfileController() {
+        let layout = UICollectionViewFlowLayout()
+        let viewController = UserProfileController(collectionViewLayout: layout)
+        navigationController?.pushViewController(viewController, animated: true)
+        
     }
     
     lazy var inputContainerView: UIView = {

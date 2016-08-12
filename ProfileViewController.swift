@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import SwiftBomb
+
 
 
 
@@ -24,11 +24,6 @@ class ProfileViewController: UICollectionViewController, UICollectionViewDelegat
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
-            
-            
-            let configuration = SwiftBombConfig(apiKey: "8e2731b28614f3c3a1530f6780a7f18e259aff59", urlRequestCachePolicy: .UseProtocolCachePolicy)
-            SwiftBomb.configure(configuration)
             
             navigationController?.navigationBar.tintColor = UIColor.blackColor()
             let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.width - 32, view.frame.height))

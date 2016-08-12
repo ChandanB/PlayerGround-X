@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FB626661D5D1D4700D4A283 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB626651D5D1D4700D4A283 /* UserProfileController.swift */; };
+		1FB626681D5D22EA00D4A283 /* UserMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB626671D5D22EA00D4A283 /* UserMenuBar.swift */; };
 		1FE1B9861D542A5F003545ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B9841D542A5F003545ED /* LaunchScreen.storyboard */; };
 		1FE1B98F1D542AB1003545ED /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B98E1D542AB1003545ED /* ApiService.swift */; };
 		1FE1B9911D542AB9003545ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9901D542AB9003545ED /* AppDelegate.swift */; };
@@ -33,9 +35,13 @@
 		1FE1B9BD1D542B12003545ED /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B51D542B12003545ED /* VideoCell.swift */; };
 		1FE1B9BF1D542E38003545ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B9BE1D542E38003545ED /* GoogleService-Info.plist */; };
 		1FE1BA2B1D5A6972003545ED /* AppStore Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1BA2A1D5A6972003545ED /* AppStore Link.swift */; };
+		4C9ECFA26C87E0AE2E9FF0C3 /* Pods_PlayerGround_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895BA12A9B9B036196FABBBC /* Pods_PlayerGround_X.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FB626651D5D1D4700D4A283 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserProfileController.swift; path = ../UserProfileController.swift; sourceTree = "<group>"; };
+		1FB626671D5D22EA00D4A283 /* UserMenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMenuBar.swift; sourceTree = "<group>"; };
+		1FB6266A1D5D573300D4A283 /* googlesignin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = googlesignin.h; sourceTree = "<group>"; };
 		1FE1B9781D542A5F003545ED /* PlayerGround X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlayerGround X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE1B9851D542A5F003545ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FE1B9871D542A5F003545ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,7 +59,7 @@
 		1FE1B9A01D542AF6003545ED /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		1FE1B9A11D542AF6003545ED /* MessagingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingExtensions.swift; sourceTree = "<group>"; };
 		1FE1B9A21D542AF6003545ED /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
-		1FE1B9AB1D542B02003545ED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1FE1B9AB1D542B02003545ED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
 		1FE1B9AE1D542B12003545ED /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		1FE1B9AF1D542B12003545ED /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		1FE1B9B01D542B12003545ED /* SubscriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
@@ -66,6 +72,7 @@
 		1FE1BA2A1D5A6972003545ED /* AppStore Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppStore Link.swift"; sourceTree = "<group>"; };
 		2D6C01B66127982B601E42E9 /* Pods-PlayerGround X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerGround X.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerGround X/Pods-PlayerGround X.debug.xcconfig"; sourceTree = "<group>"; };
 		6704112A92F32AC24DFF59E8 /* Pods-PlayerGround X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerGround X.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerGround X/Pods-PlayerGround X.release.xcconfig"; sourceTree = "<group>"; };
+		895BA12A9B9B036196FABBBC /* Pods_PlayerGround_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayerGround_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C9ECFA26C87E0AE2E9FF0C3 /* Pods_PlayerGround_X.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +90,18 @@
 		0101B7EA0510DC9DFECBF0E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				895BA12A9B9B036196FABBBC /* Pods_PlayerGround_X.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1FB626691D5D297F00D4A283 /* Profile Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1FE1B9AB1D542B02003545ED /* ProfileViewController.swift */,
+				1FB626651D5D1D4700D4A283 /* UserProfileController.swift */,
+			);
+			name = "Profile Settings";
 			sourceTree = "<group>";
 		};
 		1FE1B96F1D542A5F003545ED = {
@@ -107,6 +125,7 @@
 		1FE1B97A1D542A5F003545ED /* PlayerGround X */ = {
 			isa = PBXGroup;
 			children = (
+				1FB626691D5D297F00D4A283 /* Profile Settings */,
 				1FE1B9C31D571FE8003545ED /* Helpers */,
 				1FE1B9C21D571FCB003545ED /* Extensions */,
 				1FE1B9C11D571FB2003545ED /* Cells */,
@@ -126,7 +145,6 @@
 				1FE1B9AF1D542B12003545ED /* SettingsLauncher.swift */,
 				1FE1B9A01D542AF6003545ED /* MessagesController.swift */,
 				1FE1B99C1D542AF6003545ED /* LoginController.swift */,
-				1FE1B9AB1D542B02003545ED /* ProfileViewController.swift */,
 				1FE1B9A21D542AF6003545ED /* NewMessageController.swift */,
 				1FE1B9941D542AD8003545ED /* ChatLogController.swift */,
 				1FE1B99D1D542AF6003545ED /* LoginController+handler.swift */,
@@ -141,6 +159,7 @@
 			children = (
 				1FE1B9961D542AE1003545ED /* ChatMessageCell.swift */,
 				1FE1B9AE1D542B12003545ED /* SettingCell.swift */,
+				1FB6266A1D5D573300D4A283 /* googlesignin.h */,
 				1FE1B9B51D542B12003545ED /* VideoCell.swift */,
 				1FE1B9981D542AE1003545ED /* FeedCell.swift */,
 				1FE1B9B11D542B12003545ED /* TrendingCell.swift */,
@@ -169,6 +188,7 @@
 				1FE1B99F1D542AF6003545ED /* Message.swift */,
 				1FE1B9B21D542B12003545ED /* User.swift */,
 				1FE1B9B41D542B12003545ED /* Video.swift */,
+				1FB626671D5D22EA00D4A283 /* UserMenuBar.swift */,
 			);
 			name = Helpers;
 			path = ..;
@@ -308,12 +328,14 @@
 			files = (
 				1FE1B99A1D542AE1003545ED /* Extensions.swift in Sources */,
 				1FE1B9951D542AD8003545ED /* ChatLogController.swift in Sources */,
+				1FB626661D5D1D4700D4A283 /* UserProfileController.swift in Sources */,
 				1FE1B9A81D542AF6003545ED /* MessagingExtensions.swift in Sources */,
 				1FE1B9B81D542B12003545ED /* SubscriptionCell.swift in Sources */,
 				1FE1B9B71D542B12003545ED /* SettingsLauncher.swift in Sources */,
 				1FE1B9B91D542B12003545ED /* TrendingCell.swift in Sources */,
 				1FE1B9BC1D542B12003545ED /* Video.swift in Sources */,
 				1FE1B9991D542AE1003545ED /* ChatMessageCell.swift in Sources */,
+				1FB626681D5D22EA00D4A283 /* UserMenuBar.swift in Sources */,
 				1FE1B9BA1D542B12003545ED /* User.swift in Sources */,
 				1FE1B9A71D542AF6003545ED /* MessagesController.swift in Sources */,
 				1FE1B9911D542AB9003545ED /* AppDelegate.swift in Sources */,

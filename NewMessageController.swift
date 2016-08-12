@@ -49,7 +49,7 @@ class NewMessageController: UITableViewController {
     FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let user = User(id: nil, name: nil, email: nil, profileImageUrl: nil)
+                let user = User()
                 user.id = snapshot.key
                 
                 //if you use this setter, your app will crash if your class properties don't exactly match up with the firebase dictionary keys
@@ -61,7 +61,7 @@ class NewMessageController: UITableViewController {
                     self.tableView.reloadData()
                 })
                 
-                //                user.name = dictionary["name"]
+                //            user.name = dictionary["name"]
             }
             
             }, withCancelBlock: nil)
@@ -91,6 +91,14 @@ class NewMessageController: UITableViewController {
         let user: User
         if searchController.active && searchController.searchBar.text != "" {
             user = filteredUsers[indexPath.row]
+            func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+                dismissViewControllerAnimated(true) {
+                    print("Dismiss completed")
+                    let user = self.users[indexPath.row]
+                    self.messagesController?.showChatControllerForUser(user)
+                }
+            }
+
         } else {
             user = users[indexPath.row]
         }

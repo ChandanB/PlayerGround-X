@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
 
 class MessagesController: UITableViewController {
     
@@ -165,7 +166,7 @@ class MessagesController: UITableViewController {
                 return
             }
             
-            let user = User(id: nil, name: nil, email: nil, profileImageUrl: nil)
+            let user = User()
             user.id = chatPartnerId
             user.setValuesForKeysWithDictionary(dictionary)
             self.showChatControllerForUser(user)
@@ -199,7 +200,7 @@ class MessagesController: UITableViewController {
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 //                self.navigationItem.title = dictionary["name"] as? String
                 
-                let user = User(id: nil, name: nil, email: nil, profileImageUrl: nil)
+                let user = User()
                 user.setValuesForKeysWithDictionary(dictionary)
                 self.setupNavBarWithUser(user)
             }
@@ -278,6 +279,7 @@ class MessagesController: UITableViewController {
     func handleLogout() {
         
         do {
+            try! FIRAuth.auth()!.signOut()
             try FIRAuth.auth()?.signOut()
         } catch let logoutError {
             print(logoutError)

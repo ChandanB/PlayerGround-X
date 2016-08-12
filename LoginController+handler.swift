@@ -11,6 +11,8 @@ import Firebase
 
 extension LoginController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    
     func handleRegister() {
         guard let email = emailTextField.text, password = passwordTextField.text, name = nameTextField.text else {
             print("Form is not valid")
@@ -34,7 +36,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             
             if let profileImage = self.profileImageView.image, uploadData = UIImageJPEGRepresentation(profileImage, 0.1) {
                 
-                //            if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!) {
+                // if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!) {
                 
                 storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                     
@@ -67,7 +69,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             
             //            self.messagesController?.fetchUserAndSetupNavBarTitle()
             //            self.messagesController?.navigationItem.title = values["name"] as? String
-            let user = User(id: nil, name: nil, email: nil, profileImageUrl: nil)
+            let user = User()
             //this setter potentially crashes if keys don't match
             user.setValuesForKeysWithDictionary(values)
             self.messagesController?.setupNavBarWithUser(user)

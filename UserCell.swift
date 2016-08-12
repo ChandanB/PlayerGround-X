@@ -29,7 +29,7 @@ class UserCell: UITableViewCell {
         }
     }
     
-    private func setupNameAndProfileImage() {
+   private func setupNameAndProfileImage() {
         
         if let id = message?.chatPartnerId() {
             let ref = FIRDatabase.database().reference().child("users").child(id)

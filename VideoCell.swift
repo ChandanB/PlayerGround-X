@@ -38,7 +38,7 @@ class VideoCell: BaseCell {
                 let numberFormatter = NSNumberFormatter()
                 numberFormatter.numberStyle = .DecimalStyle
                 
-                let subtitleText = "\(channelName) • \(numberFormatter.stringFromNumber(numberOfViews)!) • 2 years ago "
+                let subtitleText = "\(channelName) • \(numberFormatter.stringFromNumber(numberOfViews)!) "
                 subtitleTextView.text = subtitleText
             }
             
@@ -73,7 +73,7 @@ class VideoCell: BaseCell {
     
     let thumbnailImageView: CustomImageView = {
         let imageView = CustomImageView()
-        imageView.image = UIImage(named: "taylor_swift_blank_space")
+        imageView.image = UIImage(named: "indieGameBanner")
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -81,7 +81,7 @@ class VideoCell: BaseCell {
     
     let userProfileImageView: CustomImageView = {
         let imageView = CustomImageView()
-        imageView.image = UIImage(named: "taylor_swift_profile")
+        imageView.image = UIImage(named: "switch_account")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
         imageView.contentMode = .ScaleAspectFill

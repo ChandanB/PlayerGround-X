@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
-
-class LoginController: UIViewController {
+import GoogleSignIn
+class LoginController: UIViewController, GIDSignInUIDelegate {
+    
     
     var messagesController: MessagesController?
     
@@ -35,6 +36,18 @@ class LoginController: UIViewController {
         return button
     }()
     
+//    weak var signInButton: GIDSignInButton!
+//    
+//    lazy var googleRegisterButton: GIDSignInButton! = {
+//        GIDSignInButtonColorScheme.Dark
+//        GIDSignInButtonStyle.Wide
+//        let button = GIDSignInButton()
+//        button.backgroundColor = UIColor(r: 90, g: 151, b: 213)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        return button
+//    }()
+    
     func handleLoginRegister() {
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
             handleLogin()
@@ -44,10 +57,13 @@ class LoginController: UIViewController {
     }
     
     func handleLogin() {
+        
+        
         guard let email = emailTextField.text, password = passwordTextField.text else {
             print("Form is not valid")
             return
         }
+        
         
         FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
             
@@ -146,6 +162,9 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        GIDSignIn.sharedInstance().signInSilently()
         
         view.backgroundColor = UIColor(r: 176, g: 176, b: 176)
         
@@ -153,12 +172,15 @@ class LoginController: UIViewController {
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
         view.addSubview(loginRegisterSegmentedControl)
+ //       view.addSubview(googleRegisterButton)
         
         setupInputsContainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
         setupLoginRegisterSegmentedControl()
+        setupGoogleRegisterButton()
     }
+    
     
     func setupLoginRegisterSegmentedControl() {
         //need x, y, width, height constraints
@@ -240,6 +262,14 @@ class LoginController: UIViewController {
         loginRegisterButton.topAnchor.constraintEqualToAnchor(inputsContainerView.bottomAnchor, constant: 12).active = true
         loginRegisterButton.widthAnchor.constraintEqualToAnchor(inputsContainerView.widthAnchor).active = true
         loginRegisterButton.heightAnchor.constraintEqualToConstant(50).active = true
+    }
+    
+    func setupGoogleRegisterButton() {
+        //need x, y, width, height constraints
+//        googleRegisterButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+//        googleRegisterButton.topAnchor.constraintEqualToAnchor(loginRegisterButton.bottomAnchor, constant: 12).active = true
+//        googleRegisterButton.widthAnchor.constraintEqualToAnchor(loginRegisterButton.widthAnchor).active = true
+//        googleRegisterButton.heightAnchor.constraintEqualToConstant(50).active = true
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
