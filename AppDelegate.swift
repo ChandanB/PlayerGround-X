@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     internal static func configure(configuration: SwiftBombConfig) {
     
-    let configuration = SwiftBombConfig(apiKey: "8e2731b28614f3c3a1530f6780a7f18e259aff59", loggingLevel: .Requests, userAgentIdentifier: "Your User Agent", urlRequestCachePolicy: .UseProtocolCachePolicy)
+    let configuration = SwiftBombConfig(apiKey: "8e2731b28614f3c3a1530f6780a7f18e259aff59", urlRequestCachePolicy: .UseProtocolCachePolicy)
     
     SwiftBomb.configure(configuration)
         
@@ -30,8 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         
         FIRApp.configure()
-        
-        
         
         GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
@@ -98,14 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 withError error: NSError!) {
         if let error = error {
             print(error.localizedDescription)
-            
         return
-        }
-        let authentication = user.authentication
-        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken,
-                                                                     accessToken: authentication.accessToken)
-        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-            // ...
+            
         }
         try! FIRAuth.auth()!.signOut()
         // ...

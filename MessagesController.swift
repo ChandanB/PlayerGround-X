@@ -277,7 +277,7 @@ class MessagesController: UITableViewController {
     
     func showProfileController() {
     let layout = UICollectionViewFlowLayout()
-    let viewController = ProfileViewController(collectionViewLayout: layout)
+    let viewController = ProfileController()
     navigationController?.pushViewController(viewController, animated: true)
     
     }
@@ -293,6 +293,7 @@ class MessagesController: UITableViewController {
     func handleLogout() {
         
         do {
+            
             try! FIRAuth.auth()!.signOut()
             try FIRAuth.auth()?.signOut()
         } catch let logoutError {

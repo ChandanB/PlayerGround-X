@@ -164,7 +164,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
         
-        GIDSignIn.sharedInstance().signInSilently()
+     //   GIDSignIn.sharedInstance().signInSilently()
         
         view.backgroundColor = UIColor(r: 176, g: 176, b: 176)
         
