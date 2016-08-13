@@ -91,7 +91,7 @@ class NewMessageController: UITableViewController {
         let user: User
         if searchController.active && searchController.searchBar.text != "" {
             user = filteredUsers[indexPath.row]
-            func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
                 dismissViewControllerAnimated(true) {
                     print("Dismiss completed")
                     let user = self.users[indexPath.row]
@@ -102,8 +102,13 @@ class NewMessageController: UITableViewController {
         } else {
             user = users[indexPath.row]
         }
-            cell.textLabel?.text = user.name
+        cell.textLabel?.text = user.name
+        
+        if user.userProfileLink == "" {
             cell.detailTextLabel?.text = user.email
+        } else {
+            cell.detailTextLabel?.text = user.userProfileLink
+        }
         if let profileImageUrl = user.profileImageUrl {
             cell.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
         }
@@ -127,11 +132,14 @@ class NewMessageController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let user: User
+                var user: User
                 if searchController.active && searchController.searchBar.text != "" {
                     user = filteredUsers[indexPath.row]
                 } else {
                     user = self.users[indexPath.row]
+                }
+                if searchController.active && searchController.searchBar.text != "" {
+                    user = filteredUsers[indexPath.row]
                 }
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! ChatLogController
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()

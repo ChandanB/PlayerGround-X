@@ -10,16 +10,6 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class TabBarController: UITabBarController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.title = "Messages"
-        print("Messages loaded")
-    }
-}
-
 
 
 class MessagesController: UITableViewController {
@@ -44,8 +34,6 @@ class MessagesController: UITableViewController {
         tableView.registerClass(UserCell.self, forCellReuseIdentifier: cellId)
         
         tableView.allowsMultipleSelectionDuringEditing = true
-        
-        TabBarController()
 
         //     observeMessages()
     }
@@ -295,7 +283,7 @@ class MessagesController: UITableViewController {
         do {
             
             try! FIRAuth.auth()!.signOut()
-            try FIRAuth.auth()?.signOut()
+            
         } catch let logoutError {
             print(logoutError)
         }

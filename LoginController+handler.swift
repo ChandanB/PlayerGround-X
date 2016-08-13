@@ -14,7 +14,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
     
     
     func handleRegister() {
-        guard let email = emailTextField.text, password = passwordTextField.text, name = nameTextField.text else {
+        guard let email = emailTextField.text, password = passwordTextField.text, name = nameTextField.text, userProfileLink = urlTextField.text else {
             print("Form is not valid")
             return
         }
@@ -47,7 +47,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                     
                     if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
                         
-                        let values = ["name": name, "email": email, "profileImageUrl": profileImageUrl]
+                        let values = ["name": name, "email": email, "profileImageUrl": profileImageUrl, "userProfileLink": userProfileLink]
                         
                         self.registerUserIntoDatabaseWithUID(uid, values: values)
                     }
@@ -67,8 +67,8 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                 return
             }
             
-            //            self.messagesController?.fetchUserAndSetupNavBarTitle()
-            //            self.messagesController?.navigationItem.title = values["name"] as? String
+            self.messagesController?.fetchUserAndSetupNavBarTitle()
+            self.messagesController?.navigationItem.title = values["name"] as? String
             let user = User()
             //this setter potentially crashes if keys don't match
             user.setValuesForKeysWithDictionary(values)

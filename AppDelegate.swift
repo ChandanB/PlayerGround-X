@@ -92,13 +92,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                     sourceApplication: sourceApplication,
                                                     annotation: annotation)
     }
+    
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
                 withError error: NSError!) {
         if let error = error {
             print(error.localizedDescription)
         return
-            
         }
+        
+        let authentication = user.authentication
+        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken,
+                                                                     accessToken: authentication.accessToken)
+        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            // ...
+        }
+                
         try! FIRAuth.auth()!.signOut()
         // ...
     }

@@ -11,32 +11,20 @@ import Firebase
 import GoogleSignIn
 class ProfileController: UIViewController, GIDSignInUIDelegate {
     
+    var messagesController = MessagesController()
+    
+    
     weak var signInButton: GIDSignInButton!
     
-    lazy var googleRegisterButton: GIDSignInButton! = {
-    GIDSignInButtonColorScheme.Dark
-    GIDSignInButtonStyle.Wide
-    let button = GIDSignInButton()
-    button.backgroundColor = UIColor(r: 90, g: 151, b: 213)
-    button.translatesAutoresizingMaskIntoConstraints = false
+        lazy var googleRegisterButton: GIDSignInButton! = {
+            GIDSignInButtonColorScheme.Dark
+            GIDSignInButtonStyle.Wide
+            let button = GIDSignInButton()
+            button.backgroundColor = UIColor(r: 90, g: 151, b: 213)
+            button.translatesAutoresizingMaskIntoConstraints = false
     
             return button
     }()
-    
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError?) {
-        if let error = error {
-            return
-        }
-        
-        let authentication = user.authentication
-        let credential = FIRGoogleAuthProvider.credentialWithIDToken(authentication.idToken, accessToken: authentication.accessToken)
-        
-        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-            // ...
-        }
-        // ...
-    }
-    
     
     
    lazy var profileImageView: UIImageView = {
@@ -54,30 +42,42 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
     func handleSelectProfileImageView() {
         let picker = UIImagePickerController()
         
+        
         picker.allowsEditing = true
         
         presentViewController(picker, animated: true, completion: nil)
     }
-
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        var selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            selectedImageFromPicker = editedImage
+        } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            profileImageView.image = selectedImage
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        print("canceled picker")
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
         
-        let googleRegisterButton: GIDSignInButton! = {
-            GIDSignInButtonColorScheme.Dark
-            GIDSignInButtonStyle.Wide
-            let button = GIDSignInButton()
-            button.backgroundColor = UIColor(r: 90, g: 151, b: 213)
-            button.translatesAutoresizingMaskIntoConstraints = false
-            
-            return button
-            
-        }()
-
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout of Services", style: .Plain, target: self, action: #selector(handleLogout))
         
         view.backgroundColor = UIColor(r: 176, g: 176, b: 176)
         
@@ -87,6 +87,20 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
         setupGoogleRegisterButton()
         setupProfileImage()
     }
+    
+    func handleLogout() {
+        
+        do {
+            
+            try! FIRAuth.auth()!.signOut()
+            
+        } catch let logoutError {
+            print(logoutError)
+        }
+        
+        presentViewController(messagesController, animated: true, completion: nil)
+    }
+
     
     func setupProfileImage() {
         profileImageView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true

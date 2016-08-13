@@ -57,7 +57,7 @@ class UserMenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate,
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        profileController?.scrollToMenuIndex(indexPath.item)
+        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
