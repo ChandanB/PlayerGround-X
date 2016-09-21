@@ -37,70 +37,70 @@ class NewMessageController: UITableViewController {
        
 
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .Plain, target: self, action: #selector(handleCancel))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
         
-        tableView.registerClass(UserCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
         fetchUser()
     }
     
     func fetchUser() {
         
-    FIRDatabase.database().reference().child("users").observeEventType(.ChildAdded, withBlock: { (snapshot) in
+    FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let user = User()
                 user.id = snapshot.key
                 
                 //if you use this setter, your app will crash if your class properties don't exactly match up with the firebase dictionary keys
-                user.setValuesForKeysWithDictionary(dictionary)
+                user.setValuesForKeys(dictionary)
                 self.users.append(user)
                 
                 //this will crash because of background thread, so lets use dispatch_async to fix
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     self.tableView.reloadData()
                 })
                 
                 //            user.name = dictionary["name"]
             }
             
-            }, withCancelBlock: nil)
+            }, withCancel: nil)
     }
     
     func handleCancel() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
         filteredUsers = users.filter { users in
-            return users.name!.lowercaseString.containsString(searchText.lowercaseString)
+            return users.name!.lowercased().contains(searchText.lowercased())
         }
         
         tableView.reloadData()
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if searchController.active && searchController.searchBar.text != "" {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            if searchController.isActive && searchController.searchBar.text != "" {
                 return filteredUsers.count
             }
         return users.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as! UserCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
         let user: User
-        if searchController.active && searchController.searchBar.text != "" {
-            user = filteredUsers[indexPath.row]
-        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-                dismissViewControllerAnimated(true) {
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filteredUsers[(indexPath as NSIndexPath).row]
+        func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+                dismiss(animated: true) {
                     print("Dismiss completed")
-                    let user = self.users[indexPath.row]
+                    let user = self.users[(indexPath as NSIndexPath).row]
                     self.messagesController?.showChatControllerForUser(user)
                 }
             }
 
         } else {
-            user = users[indexPath.row]
+            user = users[(indexPath as NSIndexPath).row]
         }
         cell.textLabel?.text = user.name
         
@@ -116,33 +116,33 @@ class NewMessageController: UITableViewController {
     }
     
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
     
     var messagesController: MessagesController?
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        dismissViewControllerAnimated(true) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismiss(animated: true) {
             print("Dismiss completed")
-            let user = self.users[indexPath.row]
+            let user = self.users[(indexPath as NSIndexPath).row]
             self.messagesController?.showChatControllerForUser(user)
         }
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 var user: User
-                if searchController.active && searchController.searchBar.text != "" {
-                    user = filteredUsers[indexPath.row]
+                if searchController.isActive && searchController.searchBar.text != "" {
+                    user = filteredUsers[(indexPath as NSIndexPath).row]
                 } else {
-                    user = self.users[indexPath.row]
+                    user = self.users[(indexPath as NSIndexPath).row]
                 }
-                if searchController.active && searchController.searchBar.text != "" {
-                    user = filteredUsers[indexPath.row]
+                if searchController.isActive && searchController.searchBar.text != "" {
+                    user = filteredUsers[(indexPath as NSIndexPath).row]
                 }
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! ChatLogController
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+                let controller = (segue.destination as! UINavigationController).topViewController as! ChatLogController
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
@@ -152,7 +152,7 @@ class NewMessageController: UITableViewController {
 
 
 extension NewMessageController: UISearchBarDelegate {
-    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }

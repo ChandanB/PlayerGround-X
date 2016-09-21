@@ -17,8 +17,8 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
     weak var signInButton: GIDSignInButton!
     
         lazy var googleRegisterButton: GIDSignInButton! = {
-            GIDSignInButtonColorScheme.Dark
-            GIDSignInButtonStyle.Wide
+            GIDSignInButtonColorScheme.dark
+            GIDSignInButtonStyle.wide
             let button = GIDSignInButton()
             button.backgroundColor = UIColor(r: 90, g: 151, b: 213)
             button.translatesAutoresizingMaskIntoConstraints = false
@@ -31,10 +31,10 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
     let imageView = UIImageView()
     imageView.image = UIImage(named: "PlayerGround")
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.contentMode = .ScaleAspectFill
+    imageView.contentMode = .scaleAspectFill
     
     imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
-    imageView.userInteractionEnabled = true
+    imageView.isUserInteractionEnabled = true
     
     return imageView
    }()
@@ -45,10 +45,10 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
         
         picker.allowsEditing = true
         
-        presentViewController(picker, animated: true, completion: nil)
+        present(picker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         var selectedImageFromPicker: UIImage?
         
@@ -63,13 +63,13 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
             profileImageView.image = selectedImage
         }
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("canceled picker")
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
     
@@ -77,7 +77,7 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout of Services", style: .Plain, target: self, action: #selector(handleLogout))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout of Services", style: .plain, target: self, action: #selector(handleLogout))
         
         view.backgroundColor = UIColor(r: 176, g: 176, b: 176)
         
@@ -98,26 +98,26 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
             print(logoutError)
         }
         
-        presentViewController(messagesController, animated: true, completion: nil)
+        present(messagesController, animated: true, completion: nil)
     }
 
     
     func setupProfileImage() {
-        profileImageView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-        profileImageView.bottomAnchor.constraintEqualToAnchor(googleRegisterButton.topAnchor, constant: -12).active = true
-        profileImageView.widthAnchor.constraintEqualToConstant(150).active = true
-        profileImageView.heightAnchor.constraintEqualToConstant(150).active = true
+        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: googleRegisterButton.topAnchor, constant: -12).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
 
     func setupGoogleRegisterButton() {
-                googleRegisterButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-                googleRegisterButton.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
-                googleRegisterButton.widthAnchor.constraintEqualToAnchor(view.widthAnchor, constant: -24).active = true
-                googleRegisterButton.heightAnchor.constraintEqualToConstant(150).active = true
+                googleRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+                googleRegisterButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+                googleRegisterButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
+                googleRegisterButton.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 }
 

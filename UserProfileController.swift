@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import SwiftBomb
 import AVFoundation
 import MobileCoreServices
 
@@ -22,18 +21,18 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backView.backgroundColor = UIColor.whiteColor()
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
-        let titleLabel = UILabel(frame: CGRectMake(0, 0, view.frame.width - 52, view.frame.height))
+        backView.backgroundColor = UIColor.white
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width - 52, height: view.frame.height))
         titleLabel.text = "  Profile"
-        titleLabel.textColor = UIColor.whiteColor()
-        titleLabel.font = UIFont.systemFontOfSize(28)
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont.systemFont(ofSize: 28)
         navigationItem.titleView = titleLabel
         
-        let url = NSURL(string: "https://google.com")!
-        UIApplication.sharedApplication().openURL(url)
+        let url = URL(string: "https://google.com")!
+        UIApplication.shared.openURL(url)
         
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
         
     }
     
@@ -47,30 +46,30 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
     lazy var inputContainerView: UIView = {
         let containerView = UIView()
         containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
-        containerView.backgroundColor = UIColor.blackColor()
+        containerView.backgroundColor = UIColor.black
         
         let uploadImageView = UIImageView()
-        uploadImageView.userInteractionEnabled = true
+        uploadImageView.isUserInteractionEnabled = true
         uploadImageView.image = UIImage(named: "subscriptions")
         uploadImageView.translatesAutoresizingMaskIntoConstraints = false
         uploadImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewUserInfo)))
         containerView.addSubview(uploadImageView)
         //x,y,w,h
-        uploadImageView.leftAnchor.constraintEqualToAnchor(containerView.leftAnchor).active = true
-        uploadImageView.centerYAnchor.constraintEqualToAnchor(containerView.centerYAnchor).active = true
-        uploadImageView.widthAnchor.constraintEqualToConstant(70).active = true
-        uploadImageView.heightAnchor.constraintEqualToConstant(70).active = true
+        uploadImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        uploadImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        uploadImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        uploadImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
         
         
         let separatorLineView = UIView()
-        separatorLineView.backgroundColor = UIColor.darkGrayColor()
+        separatorLineView.backgroundColor = UIColor.darkGray
         separatorLineView.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(separatorLineView)
         //x,y,w,h
-        separatorLineView.leftAnchor.constraintEqualToAnchor(containerView.leftAnchor).active = true
-        separatorLineView.topAnchor.constraintEqualToAnchor(containerView.topAnchor).active = true
-        separatorLineView.widthAnchor.constraintEqualToAnchor(containerView.widthAnchor).active = true
-        separatorLineView.heightAnchor.constraintEqualToConstant(1).active = true
+        separatorLineView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        separatorLineView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        separatorLineView.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
+        separatorLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
         return containerView
     }()
@@ -81,7 +80,7 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
         imagePickerController.allowsEditing = true
         imagePickerController.delegate = self
         
-        presentViewController(imagePickerController, animated: true, completion: nil)
+        present(imagePickerController, animated: true, completion: nil)
     }
     
 
@@ -91,67 +90,67 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
         }
     }
     
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder : Bool {
         return true
     }
     
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    func handleKeyboardWillShow(notification: NSNotification) {
-        let keyboardFrame = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue()
-        let keyboardDuration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue
+    func handleKeyboardWillShow(_ notification: Notification) {
+        let keyboardFrame = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as AnyObject).cgRectValue
+        let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
         
         containerViewBottomAnchor?.constant = -keyboardFrame!.height
-        UIView.animateWithDuration(keyboardDuration!) {
+        UIView.animate(withDuration: keyboardDuration!, animations: {
             self.view.layoutIfNeeded()
-        }
+        }) 
     }
     
-    func handleKeyboardWillHide(notification: NSNotification) {
-        let keyboardDuration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey]?.doubleValue
+    func handleKeyboardWillHide(_ notification: Notification) {
+        let keyboardDuration = ((notification as NSNotification).userInfo?[UIKeyboardAnimationDurationUserInfoKey] as AnyObject).doubleValue
         
         containerViewBottomAnchor?.constant = 0
-        UIView.animateWithDuration(keyboardDuration!) {
+        UIView.animate(withDuration: keyboardDuration!, animations: {
             self.view.layoutIfNeeded()
-        }
+        }) 
     }
     
     
-    private func setupCell(cell: ChatMessageCell, message: Message) {
+    fileprivate func setupCell(_ cell: ChatMessageCell, message: Message) {
         
         if message.fromId == FIRAuth.auth()?.currentUser?.uid {
             //incoming gray
             cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
-            cell.textView.textColor = UIColor.whiteColor()
-            cell.profileImageView.hidden = false
+            cell.textView.textColor = UIColor.white
+            cell.profileImageView.isHidden = false
             
-            cell.bubbleViewRightAnchor?.active = false
-            cell.bubbleViewLeftAnchor?.active = true
+            cell.bubbleViewRightAnchor?.isActive = false
+            cell.bubbleViewLeftAnchor?.isActive = true
         }
         
         if let messageImageUrl = message.imageUrl {
             cell.messageImageView.loadImageUsingCacheWithUrlString(messageImageUrl)
-            cell.messageImageView.hidden = false
-            cell.bubbleView.backgroundColor = UIColor.clearColor()
+            cell.messageImageView.isHidden = false
+            cell.bubbleView.backgroundColor = UIColor.clear
         } else {
-            cell.messageImageView.hidden = true
+            cell.messageImageView.isHidden = true
         }
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView?.collectionViewLayout.invalidateLayout()
     }
     
     
-    private func estimateFrameForText(text: String) -> CGRect {
+    fileprivate func estimateFrameForText(_ text: String) -> CGRect {
         let size = CGSize(width: 200, height: 1000)
-        let options = NSStringDrawingOptions.UsesFontLeading.union(.UsesLineFragmentOrigin)
-        return NSString(string: text).boundingRectWithSize(size, options: options, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(16)], context: nil)
+        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 16)], context: nil)
     }
     
     var containerViewBottomAnchor: NSLayoutConstraint?
@@ -161,28 +160,28 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
     var startingImageView: UIImageView?
     
     //my custom zooming logic
-    func performZoomInForStartingImageView(startingImageView: UIImageView) {
+    func performZoomInForStartingImageView(_ startingImageView: UIImageView) {
         
         self.startingImageView = startingImageView
-        self.startingImageView?.hidden = true
+        self.startingImageView?.isHidden = true
         
-        startingFrame = startingImageView.superview?.convertRect(startingImageView.frame, toView: nil)
+        startingFrame = startingImageView.superview?.convert(startingImageView.frame, to: nil)
         
         let zoomingImageView = UIImageView(frame: startingFrame!)
-        zoomingImageView.backgroundColor = UIColor.whiteColor()
+        zoomingImageView.backgroundColor = UIColor.white
         zoomingImageView.image = startingImageView.image
-        zoomingImageView.userInteractionEnabled = true
+        zoomingImageView.isUserInteractionEnabled = true
         zoomingImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomOut)))
         
-        if let keyWindow = UIApplication.sharedApplication().keyWindow {
+        if let keyWindow = UIApplication.shared.keyWindow {
             blackBackgroundView = UIView(frame: keyWindow.frame)
-            blackBackgroundView?.backgroundColor = UIColor.whiteColor()
+            blackBackgroundView?.backgroundColor = UIColor.white
             blackBackgroundView?.alpha = 0
             keyWindow.addSubview(blackBackgroundView!)
             
             keyWindow.addSubview(zoomingImageView)
             
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 
                 self.blackBackgroundView?.alpha = 1
                 self.inputContainerView.alpha = 0
@@ -203,13 +202,13 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
         }
     }
     
-    func handleZoomOut(tapGesture: UITapGestureRecognizer) {
+    func handleZoomOut(_ tapGesture: UITapGestureRecognizer) {
         if let zoomOutImageView = tapGesture.view {
             //need to animate back out to controller
             zoomOutImageView.layer.cornerRadius = 16
             zoomOutImageView.clipsToBounds = true
             
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 
                 zoomOutImageView.frame = self.startingFrame!
                 self.blackBackgroundView?.alpha = 0
@@ -217,7 +216,7 @@ class UserProfileController: UICollectionViewController, UITextFieldDelegate, UI
                 
                 }, completion: { (completed) in
                     zoomOutImageView.removeFromSuperview()
-                    self.startingImageView?.hidden = false
+                    self.startingImageView?.isHidden = false
             })
         }
     }

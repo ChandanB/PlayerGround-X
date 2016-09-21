@@ -243,6 +243,7 @@
 					1FE1B9771D542A5F003545ED = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = H3Z7K9ZZE8;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -477,6 +478,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -497,6 +499,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.PlayerGround.PlayerGround-X";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

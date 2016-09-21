@@ -13,19 +13,19 @@ let imageCache = NSCache()
 
 extension UIImageView {
     
-    func loadImageUsingCacheWithUrlString(urlString: String) {
+    func loadImageUsingCacheWithUrlString(_ urlString: String) {
         
         self.image = nil
         
         //check cache for image first
-        if let cachedImage = imageCache.objectForKey(urlString) as? UIImage {
+        if let cachedImage = imageCache.object(forKey: urlString) as? UIImage {
             self.image = cachedImage
             return
         }
         
         //otherwise fire off a new download
-        let url = NSURL(string: urlString)
-        NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, response, error) in
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             
             //download hit an error so lets return out
             if error != nil {
@@ -33,7 +33,7 @@ extension UIImageView {
                 return
             }
             
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 
                 if let downloadedImage = UIImage(data: data!) {
                     imageCache.setObject(downloadedImage, forKey: urlString)
@@ -47,9 +47,9 @@ extension UIImageView {
     
 }
 
-func addConstraintsWithFormat(format: String, views: UIView...) {
+func addConstraintsWithFormat(_ format: String, views: UIView...) {
     var viewsDictionary = [String: UIView]()
-    for (index, view) in views.enumerate() {
+    for (index, view) in views.enumerated() {
         let key = "v\(index)"
         view.translatesAutoresizingMaskIntoConstraints = false
         viewsDictionary[key] = view
@@ -59,27 +59,27 @@ class CustomImageView: UIImageView {
         
         var imageUrlString: String?
         
-        func loadImageUsingUrlString(urlString: String) {
+        func loadImageUsingUrlString(_ urlString: String) {
             
             imageUrlString = urlString
             
-            let url = NSURL(string: urlString)
+            let url = URL(string: urlString)
             
             image = nil
             
-            if let imageFromCache = imageCache.objectForKey(urlString) as? UIImage {
+            if let imageFromCache = imageCache.object(forKey: urlString) as? UIImage {
                 self.image = imageFromCache
                 return
             }
             
-            NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler: { (data, respones, error) in
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, respones, error) in
                 
                 if error != nil {
                     print(error)
                     return
                 }
                 
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     
                     let imageToCache = UIImage(data: data!)
                     

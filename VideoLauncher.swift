@@ -14,12 +14,12 @@ class VideoPlayerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .blackColor()
+        backgroundColor = .black()
         
         //warning: use your own video url here, the bandwidth for google firebase storage will run out as more and more people use this file
         let urlString = "https://firebasestorage.googleapis.com/v0/b/playerground-6d245.appspot.com/o/message_movies%2FCACCC9A5-1C3D-4928-BEFC-6D26DB968FC7.mov?alt=media&token=85a1bda3-1b11-4de8-97f6-cb519a64a48c"
-        if let url = NSURL(string: urlString) {
-            let player = AVPlayer(URL: url)
+        if let url = URL(string: urlString) {
+            let player = AVPlayer(url: url)
             
             let playerLayer = AVPlayerLayer(player: player)
             self.layer.addSublayer(playerLayer)
@@ -40,9 +40,9 @@ class VideoLauncher: NSObject {
     func showVideoPlayer() {
         print("Showing video player animation....")
         
-        if let keyWindow = UIApplication.sharedApplication().keyWindow {
+        if let keyWindow = UIApplication.shared.keyWindow {
             let view = UIView(frame: keyWindow.frame)
-            view.backgroundColor = UIColor.whiteColor()
+            view.backgroundColor = UIColor.white
             
             view.frame = CGRect(x: keyWindow.frame.width - 10, y: keyWindow.frame.height - 10, width: 10, height: 10)
             
@@ -54,13 +54,13 @@ class VideoLauncher: NSObject {
             
             keyWindow.addSubview(view)
             
-            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .CurveEaseOut, animations: { 
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { 
                 
                 view.frame = keyWindow.frame
                 
                 }, completion: { (completedAnimation) in
                     //maybe we'll do something here later...
-                    UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Fade)
+                    UIApplication.shared.setStatusBarHidden(true, with: .fade)
             })
         }
     }
