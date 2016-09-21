@@ -67,7 +67,7 @@ class ChatMessageCell: UICollectionViewCell {
         tv.font = UIFont.systemFontOfSize(16)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.clearColor()
-        tv.textColor = .whiteColor()
+        tv.textColor = UIColor.whiteColor
         tv.editable = false
         return tv
     }()

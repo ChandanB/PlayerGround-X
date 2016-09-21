@@ -4,17 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-PlayerGround X.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SwiftBomb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -23,21 +13,6 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>5124795D9321C84EF11D705232BCD710</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C9E9CF1F6BF264A2357D7DB456F70F86</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E1693800B824FAF2D518B7F8EB7EF0BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

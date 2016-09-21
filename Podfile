@@ -10,8 +10,7 @@ target 'PlayerGround X' do
 pod ‘Firebase/Database’
 pod ‘Firebase/Auth’
 pod ‘Firebase/Storage’
-pod ‘Alamofire’
 pod ‘GoogleSignIn’
 pod ‘Firebase/Core’
-pod ‘SwiftBomb‘
+
 end
