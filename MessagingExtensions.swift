@@ -8,9 +8,6 @@
 
 import UIKit
 
-let imageCache = NSCache()
-
-
 extension UIImageView {
     
     func loadImageUsingCacheWithUrlString(_ urlString: String) {
@@ -18,10 +15,6 @@ extension UIImageView {
         self.image = nil
         
         //check cache for image first
-        if let cachedImage = imageCache.object(forKey: urlString) as? UIImage {
-            self.image = cachedImage
-            return
-        }
         
         //otherwise fire off a new download
         let url = URL(string: urlString)
@@ -35,11 +28,6 @@ extension UIImageView {
             
             DispatchQueue.main.async(execute: {
                 
-                if let downloadedImage = UIImage(data: data!) {
-                    imageCache.setObject(downloadedImage, forKey: urlString)
-                    
-                    self.image = downloadedImage
-                }
             })
             
         }).resume()
@@ -67,10 +55,6 @@ class CustomImageView: UIImageView {
             
             image = nil
             
-            if let imageFromCache = imageCache.object(forKey: urlString) as? UIImage {
-                self.image = imageFromCache
-                return
-            }
             
             URLSession.shared.dataTask(with: url!, completionHandler: { (data, respones, error) in
                 
@@ -87,8 +71,7 @@ class CustomImageView: UIImageView {
                         self.image = imageToCache
                     }
                     
-                    imageCache.setObject(imageToCache!, forKey: urlString)
-                })
+                    })
                 
             }).resume()
         }

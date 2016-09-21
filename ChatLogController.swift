@@ -409,9 +409,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         let childRef = ref.childByAutoId()
         let toId = user!.id!
         let fromId = FIRAuth.auth()!.currentUser!.uid
-        let timestamp: NSNumber = NSNumber(Int(Date().timeIntervalSince1970))
         
-        var values: [String: AnyObject] = ["toId": toId as AnyObject, "fromId": fromId as AnyObject, "timestamp": timestamp]
+        var values: [String: AnyObject] = ["toId": toId as AnyObject, "fromId": fromId as AnyObject, "timestamp": CVTimeStamp() as AnyObject]
         
         //append properties dictionary onto values somehow??
         //key $0, value $1

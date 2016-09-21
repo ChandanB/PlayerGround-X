@@ -36,17 +36,17 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         return button
     }()
     
-//    weak var signInButton: GIDSignInButton!
+    weak var signInButton: GIDSignInButton!
 //    
-//    lazy var googleRegisterButton: GIDSignInButton! = {
-//        GIDSignInButtonColorScheme.Dark
-//        GIDSignInButtonStyle.Wide
-//        let button = GIDSignInButton()
-//        button.backgroundColor = UIColor(r: 90, g: 151, b: 213)
-//        button.translatesAutoresizingMaskIntoConstraints = false
+    lazy var googleRegisterButton: GIDSignInButton! = {
+        GIDSignInButtonColorScheme.dark
+        GIDSignInButtonStyle.wide
+        let button = GIDSignInButton()
+        button.backgroundColor = UIColor(r: 90, g: 151, b: 213)
+        button.translatesAutoresizingMaskIntoConstraints = false
 //        
-//        return button
-//    }()
+        return button
+    }()
     
     func handleLoginRegister() {
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
@@ -99,7 +99,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
     
     let nameTextField: UITextField = {
         let tf = UITextField()
-        tf.placeholder = "Userame/Company Name"
+        tf.placeholder = "Userame/Company"
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
@@ -153,10 +153,11 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
     }()
     
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Login", "Register"])
+        let sc = UISegmentedControl(items: ["Welcome!"])
         sc.translatesAutoresizingMaskIntoConstraints = false
-        sc.tintColor = UIColor.white
-        sc.selectedSegmentIndex = 1
+        sc.tintColor = UIColor.clear
+        sc.selectedSegmentIndex = 0
+        sc.backgroundColor = UIColor.clear
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
         return sc
     }()
@@ -193,27 +194,36 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
         loginRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-
+    
+    func setupGoogleRegisterButton() {
+        //need x, y, width, height constraints
+        googleRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        googleRegisterButton.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 20).isActive = true
+        googleRegisterButton.widthAnchor.constraint(equalTo: loginRegisterButton.widthAnchor).isActive = true
+        googleRegisterButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
         
-     //   GIDSignIn.sharedInstance().signInSilently()
+        GIDSignIn.sharedInstance().signInSilently()
         
         view.backgroundColor = UIColor(r: 176, g: 176, b: 176)
         
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
-
         view.addSubview(loginRegisterSegmentedControl)
- //       view.addSubview(googleRegisterButton)
+        view.addSubview(googleRegisterButton)
         
         setupInputsContainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
         setupLoginRegisterSegmentedControl()
+        setupGoogleRegisterButton()
         
     }
     
@@ -308,15 +318,7 @@ class LoginController: UIViewController, GIDSignInUIDelegate {
         urlTextFieldHeightAnchor = urlTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4)
         urlTextFieldHeightAnchor?.isActive = true
         
-        
-    func setupGoogleRegisterButton() {
-        //need x, y, width, height constraints
-//        googleRegisterButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
-//        googleRegisterButton.topAnchor.constraintEqualToAnchor(loginRegisterButton.bottomAnchor, constant: 12).active = true
-//        googleRegisterButton.widthAnchor.constraintEqualToAnchor(loginRegisterButton.widthAnchor).active = true
-//        googleRegisterButton.heightAnchor.constraintEqualToConstant(50).active = true
-    }
-    
+
     func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .lightContent
     }

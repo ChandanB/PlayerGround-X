@@ -52,11 +52,7 @@ class CustomImageView: UIImageView {
         
         image = nil
         
-        if let imageFromCache = imageCache.object(forKey: urlString) as? UIImage {
-            self.image = imageFromCache
-            return
-        }
-        
+                
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, respones, error) in
             
             if error != nil {
@@ -72,7 +68,7 @@ class CustomImageView: UIImageView {
                     self.image = imageToCache
                 }
                 
-                imageCache.setObject(imageToCache!, forKey: urlString)
+               
             })
             
         }).resume()

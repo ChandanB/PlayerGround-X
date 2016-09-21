@@ -14,17 +14,13 @@ import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-
-    var window: UIWindow?
-    
-    internal static func configure(_ configuration: SwiftBombConfig) {
-    
-    let configuration = SwiftBombConfig(apiKey: "8e2731b28614f3c3a1530f6780a7f18e259aff59", urlRequestCachePolicy: .UseProtocolCachePolicy)
-    
-    SwiftBomb.configure(configuration)
+    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
     }
 
+
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
@@ -84,15 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
             annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
-    func application(_ application: UIApplication,
-                     open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        var options: [String: AnyObject] = [UIApplicationOpenURLOptionsKey.sourceApplication.rawValue: sourceApplication! as AnyObject,
-                                            UIApplicationOpenURLOptionsKey.annotation.rawValue: annotation as AnyObject]
-        return GIDSignIn.sharedInstance().handle(url,
-                                                    sourceApplication: sourceApplication,
-                                                    annotation: annotation)
-    }
-    
+       
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
                 withError error: NSError!) {
         if let error = error {
@@ -110,16 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         try! FIRAuth.auth()!.signOut()
         // ...
     }
-    
-    
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!,
-                withError error: NSError!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
-    }
-    
-    
-    
     
 }
 

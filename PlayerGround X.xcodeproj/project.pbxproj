@@ -9,75 +9,47 @@
 /* Begin PBXBuildFile section */
 		1F071CA01D5E81CD00CD2303 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F071C9F1D5E81CD00CD2303 /* ProfileController.swift */; };
 		1FB626661D5D1D4700D4A283 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB626651D5D1D4700D4A283 /* UserProfileController.swift */; };
-		1FB626681D5D22EA00D4A283 /* UserMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB626671D5D22EA00D4A283 /* UserMenuBar.swift */; };
-		1FD70EE91D5E57E600ECB9A5 /* SuggestedVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD70EE81D5E57E600ECB9A5 /* SuggestedVideo.swift */; };
 		1FD70EF11D5E57FC00ECB9A5 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD70EF01D5E57FC00ECB9A5 /* Playlist.swift */; };
-		1FD70F111D5E5D3D00ECB9A5 /* VideoLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD70F101D5E5D3D00ECB9A5 /* VideoLauncher.swift */; };
 		1FE1B9861D542A5F003545ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B9841D542A5F003545ED /* LaunchScreen.storyboard */; };
-		1FE1B98F1D542AB1003545ED /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B98E1D542AB1003545ED /* ApiService.swift */; };
 		1FE1B9911D542AB9003545ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9901D542AB9003545ED /* AppDelegate.swift */; };
 		1FE1B9931D542AC3003545ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B9921D542AC3003545ED /* Assets.xcassets */; };
 		1FE1B9951D542AD8003545ED /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9941D542AD8003545ED /* ChatLogController.swift */; };
 		1FE1B9991D542AE1003545ED /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9961D542AE1003545ED /* ChatMessageCell.swift */; };
 		1FE1B99A1D542AE1003545ED /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9971D542AE1003545ED /* Extensions.swift */; };
-		1FE1B99B1D542AE1003545ED /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9981D542AE1003545ED /* FeedCell.swift */; };
 		1FE1B9A31D542AF6003545ED /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B99C1D542AF6003545ED /* LoginController.swift */; };
 		1FE1B9A41D542AF6003545ED /* LoginController+handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B99D1D542AF6003545ED /* LoginController+handler.swift */; };
-		1FE1B9A51D542AF6003545ED /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B99E1D542AF6003545ED /* MenuBar.swift */; };
 		1FE1B9A61D542AF6003545ED /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B99F1D542AF6003545ED /* Message.swift */; };
 		1FE1B9A71D542AF6003545ED /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9A01D542AF6003545ED /* MessagesController.swift */; };
 		1FE1B9A81D542AF6003545ED /* MessagingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9A11D542AF6003545ED /* MessagingExtensions.swift */; };
 		1FE1B9A91D542AF6003545ED /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9A21D542AF6003545ED /* NewMessageController.swift */; };
-		1FE1B9AD1D542B02003545ED /* YoutubeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9AB1D542B02003545ED /* YoutubeStyle.swift */; };
-		1FE1B9B61D542B12003545ED /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9AE1D542B12003545ED /* SettingCell.swift */; };
-		1FE1B9B71D542B12003545ED /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9AF1D542B12003545ED /* SettingsLauncher.swift */; };
-		1FE1B9B81D542B12003545ED /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B01D542B12003545ED /* SubscriptionCell.swift */; };
-		1FE1B9B91D542B12003545ED /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B11D542B12003545ED /* TrendingCell.swift */; };
 		1FE1B9BA1D542B12003545ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B21D542B12003545ED /* User.swift */; };
 		1FE1B9BB1D542B12003545ED /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B31D542B12003545ED /* UserCell.swift */; };
-		1FE1B9BC1D542B12003545ED /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B41D542B12003545ED /* Video.swift */; };
-		1FE1B9BD1D542B12003545ED /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1B9B51D542B12003545ED /* VideoCell.swift */; };
 		1FE1B9BF1D542E38003545ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1FE1B9BE1D542E38003545ED /* GoogleService-Info.plist */; };
-		1FE1BA2B1D5A6972003545ED /* AppStore Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE1BA2A1D5A6972003545ED /* AppStore Link.swift */; };
 		4C9ECFA26C87E0AE2E9FF0C3 /* Pods_PlayerGround_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895BA12A9B9B036196FABBBC /* Pods_PlayerGround_X.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F071C9F1D5E81CD00CD2303 /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		1FB626651D5D1D4700D4A283 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
-		1FB626671D5D22EA00D4A283 /* UserMenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMenuBar.swift; sourceTree = "<group>"; };
 		1FB6266A1D5D573300D4A283 /* googlesignin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = googlesignin.h; path = ../googlesignin.h; sourceTree = "<group>"; };
-		1FD70EE81D5E57E600ECB9A5 /* SuggestedVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestedVideo.swift; path = "PlayerGround X/SuggestedVideo.swift"; sourceTree = "<group>"; };
 		1FD70EF01D5E57FC00ECB9A5 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = "PlayerGround X/Playlist.swift"; sourceTree = "<group>"; };
-		1FD70F101D5E5D3D00ECB9A5 /* VideoLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoLauncher.swift; sourceTree = "<group>"; };
 		1FE1B9781D542A5F003545ED /* PlayerGround X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PlayerGround X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE1B9851D542A5F003545ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FE1B9871D542A5F003545ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FE1B98E1D542AB1003545ED /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		1FE1B9901D542AB9003545ED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		1FE1B9921D542AC3003545ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		1FE1B9941D542AD8003545ED /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		1FE1B9961D542AE1003545ED /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
 		1FE1B9971D542AE1003545ED /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		1FE1B9981D542AE1003545ED /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		1FE1B99C1D542AF6003545ED /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1FE1B99D1D542AF6003545ED /* LoginController+handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+handler.swift"; sourceTree = "<group>"; };
-		1FE1B99E1D542AF6003545ED /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		1FE1B99F1D542AF6003545ED /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		1FE1B9A01D542AF6003545ED /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		1FE1B9A11D542AF6003545ED /* MessagingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingExtensions.swift; sourceTree = "<group>"; };
 		1FE1B9A21D542AF6003545ED /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
-		1FE1B9AB1D542B02003545ED /* YoutubeStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeStyle.swift; sourceTree = "<group>"; };
-		1FE1B9AE1D542B12003545ED /* SettingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
-		1FE1B9AF1D542B12003545ED /* SettingsLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
-		1FE1B9B01D542B12003545ED /* SubscriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
-		1FE1B9B11D542B12003545ED /* TrendingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		1FE1B9B21D542B12003545ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1FE1B9B31D542B12003545ED /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		1FE1B9B41D542B12003545ED /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
-		1FE1B9B51D542B12003545ED /* VideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		1FE1B9BE1D542E38003545ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1FE1BA2A1D5A6972003545ED /* AppStore Link.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppStore Link.swift"; sourceTree = "<group>"; };
 		2D6C01B66127982B601E42E9 /* Pods-PlayerGround X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerGround X.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerGround X/Pods-PlayerGround X.debug.xcconfig"; sourceTree = "<group>"; };
 		6704112A92F32AC24DFF59E8 /* Pods-PlayerGround X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayerGround X.release.xcconfig"; path = "Pods/Target Support Files/Pods-PlayerGround X/Pods-PlayerGround X.release.xcconfig"; sourceTree = "<group>"; };
 		895BA12A9B9B036196FABBBC /* Pods_PlayerGround_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayerGround_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,16 +113,12 @@
 		1FE1B9C01D571F8A003545ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1FD70F101D5E5D3D00ECB9A5 /* VideoLauncher.swift */,
-				1FE1B9AF1D542B12003545ED /* SettingsLauncher.swift */,
 				1FE1B9A01D542AF6003545ED /* MessagesController.swift */,
 				1FB626651D5D1D4700D4A283 /* UserProfileController.swift */,
-				1FE1B9AB1D542B02003545ED /* YoutubeStyle.swift */,
 				1FE1B99C1D542AF6003545ED /* LoginController.swift */,
 				1FE1B9A21D542AF6003545ED /* NewMessageController.swift */,
 				1FE1B9941D542AD8003545ED /* ChatLogController.swift */,
 				1FE1B99D1D542AF6003545ED /* LoginController+handler.swift */,
-				1FE1BA2A1D5A6972003545ED /* AppStore Link.swift */,
 				1F071C9F1D5E81CD00CD2303 /* ProfileController.swift */,
 			);
 			name = Controller;
@@ -161,12 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				1FE1B9961D542AE1003545ED /* ChatMessageCell.swift */,
-				1FE1B9AE1D542B12003545ED /* SettingCell.swift */,
-				1FE1B9B51D542B12003545ED /* VideoCell.swift */,
-				1FE1B9981D542AE1003545ED /* FeedCell.swift */,
-				1FE1B9B11D542B12003545ED /* TrendingCell.swift */,
 				1FE1B9B31D542B12003545ED /* UserCell.swift */,
-				1FE1B9B01D542B12003545ED /* SubscriptionCell.swift */,
 			);
 			name = Cells;
 			path = ..;
@@ -177,7 +140,6 @@
 			children = (
 				1FE1B9971D542AE1003545ED /* Extensions.swift */,
 				1FE1B9A11D542AF6003545ED /* MessagingExtensions.swift */,
-				1FE1B98E1D542AB1003545ED /* ApiService.swift */,
 			);
 			name = Extensions;
 			path = ..;
@@ -187,12 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				1FD70EF01D5E57FC00ECB9A5 /* Playlist.swift */,
-				1FD70EE81D5E57E600ECB9A5 /* SuggestedVideo.swift */,
-				1FE1B99E1D542AF6003545ED /* MenuBar.swift */,
 				1FE1B99F1D542AF6003545ED /* Message.swift */,
 				1FE1B9B21D542B12003545ED /* User.swift */,
-				1FE1B9B41D542B12003545ED /* Video.swift */,
-				1FB626671D5D22EA00D4A283 /* UserMenuBar.swift */,
 			);
 			name = Helpers;
 			path = ..;
@@ -237,7 +195,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Gaming Recess";
 				TargetAttributes = {
 					1FE1B9771D542A5F003545ED = {
@@ -335,29 +293,15 @@
 				1FE1B9951D542AD8003545ED /* ChatLogController.swift in Sources */,
 				1FB626661D5D1D4700D4A283 /* UserProfileController.swift in Sources */,
 				1FE1B9A81D542AF6003545ED /* MessagingExtensions.swift in Sources */,
-				1FE1B9B81D542B12003545ED /* SubscriptionCell.swift in Sources */,
-				1FE1B9B71D542B12003545ED /* SettingsLauncher.swift in Sources */,
-				1FE1B9B91D542B12003545ED /* TrendingCell.swift in Sources */,
-				1FE1B9BC1D542B12003545ED /* Video.swift in Sources */,
 				1F071CA01D5E81CD00CD2303 /* ProfileController.swift in Sources */,
 				1FE1B9991D542AE1003545ED /* ChatMessageCell.swift in Sources */,
-				1FB626681D5D22EA00D4A283 /* UserMenuBar.swift in Sources */,
 				1FE1B9BA1D542B12003545ED /* User.swift in Sources */,
 				1FE1B9A71D542AF6003545ED /* MessagesController.swift in Sources */,
 				1FE1B9911D542AB9003545ED /* AppDelegate.swift in Sources */,
-				1FE1B98F1D542AB1003545ED /* ApiService.swift in Sources */,
-				1FE1B9BD1D542B12003545ED /* VideoCell.swift in Sources */,
-				1FE1B9A51D542AF6003545ED /* MenuBar.swift in Sources */,
-				1FE1B99B1D542AE1003545ED /* FeedCell.swift in Sources */,
-				1FE1B9B61D542B12003545ED /* SettingCell.swift in Sources */,
-				1FE1BA2B1D5A6972003545ED /* AppStore Link.swift in Sources */,
 				1FE1B9A61D542AF6003545ED /* Message.swift in Sources */,
 				1FE1B9A41D542AF6003545ED /* LoginController+handler.swift in Sources */,
-				1FE1B9AD1D542B02003545ED /* YoutubeStyle.swift in Sources */,
 				1FE1B9A31D542AF6003545ED /* LoginController.swift in Sources */,
 				1FD70EF11D5E57FC00ECB9A5 /* Playlist.swift in Sources */,
-				1FD70F111D5E5D3D00ECB9A5 /* VideoLauncher.swift in Sources */,
-				1FD70EE91D5E57E600ECB9A5 /* SuggestedVideo.swift in Sources */,
 				1FE1B9A91D542AF6003545ED /* NewMessageController.swift in Sources */,
 				1FE1B9BB1D542B12003545ED /* UserCell.swift in Sources */,
 			);
@@ -391,8 +335,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -436,8 +382,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -456,6 +404,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

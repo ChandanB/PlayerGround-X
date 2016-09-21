@@ -284,7 +284,6 @@ class MessagesController: UITableViewController {
     }
     
     func showProfileController() {
-    let layout = UICollectionViewFlowLayout()
     let viewController = ProfileController()
     navigationController?.pushViewController(viewController, animated: true)
     
