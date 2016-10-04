@@ -114,10 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				1FE1B9A01D542AF6003545ED /* MessagesController.swift */,
+				1FE1B9941D542AD8003545ED /* ChatLogController.swift */,
 				1FB626651D5D1D4700D4A283 /* UserProfileController.swift */,
 				1FE1B99C1D542AF6003545ED /* LoginController.swift */,
 				1FE1B9A21D542AF6003545ED /* NewMessageController.swift */,
-				1FE1B9941D542AD8003545ED /* ChatLogController.swift */,
 				1FE1B99D1D542AF6003545ED /* LoginController+handler.swift */,
 				1F071C9F1D5E81CD00CD2303 /* ProfileController.swift */,
 			);

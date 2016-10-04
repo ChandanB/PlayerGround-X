@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -28,8 +29,6 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     return rhs < lhs
   }
 }
-
-
 
 
 class MessagesController: UITableViewController {
