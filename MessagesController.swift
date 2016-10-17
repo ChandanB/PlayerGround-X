@@ -39,9 +39,9 @@ class MessagesController: UITableViewController {
         super.viewDidLoad()
         
         let dummySettingsViewController = UIViewController()
-        dummySettingsViewController.view.backgroundColor = UIColor.rgb(90, green: 151, blue: 213)
-        navigationController?.navigationBar.tintColor = UIColor.rgb(90, green: 151, blue: 213)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.rgb(90, green: 151, blue: 213)]
+        dummySettingsViewController.view.backgroundColor = UIColor.init(r: 90, g: 151, b: 213)
+        navigationController?.navigationBar.tintColor = UIColor.init(r: 90, g: 151, b: 213)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(r: 90, g: 151, b: 213)]
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         
@@ -241,7 +241,7 @@ class MessagesController: UITableViewController {
         
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = UIColor.rgb(90, green: 151, blue: 213)
+        containerView.backgroundColor = UIColor.init(r: 90, g: 151, b: 213)
         titleView.addSubview(containerView)
         
         let profileImageView = UIImageView()
@@ -266,7 +266,7 @@ class MessagesController: UITableViewController {
         
         containerView.addSubview(nameLabel)
         nameLabel.text = user.name
-        nameLabel.textColor = UIColor.rgb(90, green: 151, blue: 213)
+        nameLabel.textColor = UIColor.init(r: 90, g: 151, b: 213)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         //need x,y,width,height anchors
         nameLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8).isActive = true

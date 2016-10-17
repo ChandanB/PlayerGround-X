@@ -36,14 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
         window?.rootViewController = UINavigationController(rootViewController: MessagesController())
         
-        UINavigationBar.appearance().barTintColor = UIColor.rgb(90, green: 151, blue: 213)
+        UINavigationBar.appearance().barTintColor = UIColor.init(r: 90, g: 151, b: 213)
         
         // get rid of black bar underneath navbar
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
         let statusBarBackgroundView = UIView()
-        statusBarBackgroundView.backgroundColor = UIColor.rgb(90, green: 151, blue: 213)
+        statusBarBackgroundView.backgroundColor = UIColor.init(r: 90, g: 151, b: 213)
         window?.addSubview(statusBarBackgroundView)
         window?.addConstraintsWithFormat("H:|[v0]|", views: statusBarBackgroundView)
         window?.addConstraintsWithFormat("V:|[v0(20)]", views: statusBarBackgroundView)

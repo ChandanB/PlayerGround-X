@@ -33,7 +33,7 @@ class NewMessageController: UITableViewController {
         
         searchController.searchBar.scopeButtonTitles = ["All", "Name"]
         searchController.searchBar.delegate = self
-        searchController.searchBar.tintColor = UIColor.rgb(90, green: 151, blue: 213)
+        searchController.searchBar.tintColor = UIColor.init(r: 90, g: 151, b: 213)
        
 
         
