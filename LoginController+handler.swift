@@ -11,10 +11,8 @@ import Firebase
 
 extension LoginController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
-    
     func handleRegister() {
-        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text, let userProfileLink = urlTextField.text else {
+        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
             print("Form is not valid")
             return
         }
@@ -36,8 +34,6 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             
             if let profileImage = self.profileImageView.image, let uploadData = UIImageJPEGRepresentation(profileImage, 0.1) {
                 
-                // if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!) {
-                
                 storageRef.put(uploadData, metadata: nil, completion: { (metadata, error) in
                     
                     if error != nil {
@@ -47,7 +43,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                     
                     if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
                         
-                        let values = ["name": name, "email": email, "profileImageUrl": profileImageUrl, "userProfileLink": userProfileLink]
+                        let values = ["name": name, "email": email, "profileImageUrl": profileImageUrl]
                         
                         self.registerUserIntoDatabaseWithUID(uid, values: values as [String : AnyObject])
                     }
@@ -67,8 +63,8 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                 return
             }
             
-            self.messagesController?.fetchUserAndSetupNavBarTitle()
-            self.messagesController?.navigationItem.title = values["name"] as? String
+            //            self.messagesController?.fetchUserAndSetupNavBarTitle()
+            //            self.messagesController?.navigationItem.title = values["name"] as? String
             let user = User()
             //this setter potentially crashes if keys don't match
             user.setValuesForKeys(values)

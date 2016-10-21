@@ -11,20 +11,7 @@ import Firebase
 import GoogleSignIn
 class ProfileController: UIViewController, GIDSignInUIDelegate {
     
-    var messagesController = MessagesController()
-    
-    
-    weak var signInButton: GIDSignInButton!
-    
-        lazy var googleRegisterButton: GIDSignInButton! = {
-            GIDSignInButtonColorScheme.dark
-            GIDSignInButtonStyle.wide
-            let button = GIDSignInButton()
-            button.backgroundColor = UIColor(r: 90, g: 151, b: 213)
-            button.translatesAutoresizingMaskIntoConstraints = false
-    
-            return button
-    }()
+   var messagesController = MessagesController()
     
     
    lazy var profileImageView: UIImageView = {
@@ -82,9 +69,7 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
         view.backgroundColor = UIColor(r: 176, g: 176, b: 176)
         
         view.addSubview(profileImageView)
-        view.addSubview(googleRegisterButton)
 
-        setupGoogleRegisterButton()
         setupProfileImage()
     }
     
@@ -94,9 +79,7 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
             
             try! FIRAuth.auth()!.signOut()
             
-        } catch let logoutError {
-            print(logoutError)
-        }
+        } 
         
         present(messagesController, animated: true, completion: nil)
     }
@@ -104,18 +87,11 @@ class ProfileController: UIViewController, GIDSignInUIDelegate {
     
     func setupProfileImage() {
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: googleRegisterButton.topAnchor, constant: -12).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
 
-    func setupGoogleRegisterButton() {
-                googleRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-                googleRegisterButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-                googleRegisterButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -24).isActive = true
-                googleRegisterButton.heightAnchor.constraint(equalToConstant: 150).isActive = true
-    }
-    
+
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }

@@ -7,49 +7,27 @@
 //
 
 import UIKit
+import Firebase
 
-enum stateOfVC {
-    case minimized
-    case fullScreen
-    case hidden
-}
-enum Direction {
-    case up
-    case left
-    case none
-}
+let imageCache = NSCache<NSString, UIImage>()
 
-
-
-extension UIView {
-    func addConstraintsWithFormat(_ format: String, views: UIView...) {
-        var viewsDictionary = [String: UIView]()
-        for (index, view) in views.enumerated() {
-            let key = "v\(index)"
-            view.translatesAutoresizingMaskIntoConstraints = false
-            viewsDictionary[key] = view
+extension UIImageView {
+    
+    func loadImageUsingCacheWithUrlString(_ urlString: String) {
+        
+        self.image = nil
+        
+        //check cache for image first
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
+            self.image = cachedImage
+            return
         }
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
-    }
-}
-
-
-class CustomImageView: UIImageView {
-    
-    var imageUrlString: String?
-    
-    func loadImageUsingUrlString(_ urlString: String) {
-        
-        imageUrlString = urlString
-        
+        //otherwise fire off a new download
         let url = URL(string: urlString)
-        
-        image = nil
-        
-                
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, respones, error) in
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             
+            //download hit an error so lets return out
             if error != nil {
                 print(error)
                 return
@@ -57,25 +35,14 @@ class CustomImageView: UIImageView {
             
             DispatchQueue.main.async(execute: {
                 
-                let imageToCache = UIImage(data: data!)
-                
-                if self.imageUrlString == urlString {
-                    self.image = imageToCache
+                if let downloadedImage = UIImage(data: data!) {
+                    imageCache.setObject(downloadedImage, forKey: urlString as NSString)
+                    
+                    self.image = downloadedImage
                 }
-                
-               
             })
             
         }).resume()
-    }
-    
-}
-
-extension NewMessageController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
-        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
     }
 }
 

@@ -8,15 +8,12 @@
 
 import UIKit
 import Firebase
-import GoogleSignIn
 
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
-    }
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
 
 
     var window: UIWindow?
@@ -27,9 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FIRApp.configure()
         
-        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
-        
+      
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
@@ -45,8 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         let statusBarBackgroundView = UIView()
         statusBarBackgroundView.backgroundColor = UIColor.init(r: 90, g: 151, b: 213)
         window?.addSubview(statusBarBackgroundView)
-        window?.addConstraintsWithFormat("H:|[v0]|", views: statusBarBackgroundView)
-        window?.addConstraintsWithFormat("V:|[v0(20)]", views: statusBarBackgroundView)
         
         
         return true
@@ -74,30 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    func application(_ application: UIApplication,
-                     open url: URL, options: [UIApplicationOpenURLOptionsKey: Any]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url,
-            sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-    }
-       
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
-                withError error: NSError!) {
-        if let error = error {
-            print(error.localizedDescription)
-        return
-        }
-        
-        let authentication = user.authentication
-        let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
-                                                                     accessToken: (authentication?.accessToken)!)
-        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            // ...
-        }
-                
-        try! FIRAuth.auth()!.signOut()
-        // ...
-    }
+  
     
 }
 

@@ -8,32 +8,6 @@
 
 import UIKit
 
-extension UIImageView {
-    
-    func loadImageUsingCacheWithUrlString(_ urlString: String) {
-        
-        self.image = nil
-        
-        //check cache for image first
-        
-        //otherwise fire off a new download
-        let url = URL(string: urlString)
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-            
-            //download hit an error so lets return out
-            if error != nil {
-                print(error)
-                return
-            }
-            
-            DispatchQueue.main.async(execute: {
-                
-            })
-            
-        }).resume()
-    }
-    
-}
 
 func addConstraintsWithFormat(_ format: String, views: UIView...) {
     var viewsDictionary = [String: UIView]()

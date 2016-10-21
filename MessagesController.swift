@@ -8,40 +8,33 @@
 
 import UIKit
 import Firebase
-import GoogleSignIn
-
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
 }
 
 fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l > r
+    default:
+        return rhs < lhs
+    }
 }
 
 
 class MessagesController: UITableViewController {
     
     let cellId = "cellId"
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let dummySettingsViewController = UIViewController()
-        dummySettingsViewController.view.backgroundColor = UIColor.init(r: 90, g: 151, b: 213)
-        navigationController?.navigationBar.tintColor = UIColor.init(r: 90, g: 151, b: 213)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.init(r: 90, g: 151, b: 213)]
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         
@@ -52,9 +45,9 @@ class MessagesController: UITableViewController {
         
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
+        //        observeMessages()
+        
         tableView.allowsMultipleSelectionDuringEditing = true
-
-        //     observeMessages()
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -81,8 +74,8 @@ class MessagesController: UITableViewController {
                 self.attemptReloadOfTable()
                 
                 //                //this is one way of updating the table, but its actually not that safe..
-                 // self.messages.removeAtIndex(indexPath.row)
-                 // self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+                //                self.messages.removeAtIndex(indexPath.row)
+                //                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                 
             })
         }
@@ -139,6 +132,7 @@ class MessagesController: UITableViewController {
     
     fileprivate func attemptReloadOfTable() {
         self.timer?.invalidate()
+        
         self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
     }
     
@@ -238,10 +232,10 @@ class MessagesController: UITableViewController {
         
         let titleView = UIView()
         titleView.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        //        titleView.backgroundColor = UIColor.redColor()
         
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = UIColor.init(r: 90, g: 151, b: 213)
         titleView.addSubview(containerView)
         
         let profileImageView = UIImageView()
@@ -266,7 +260,6 @@ class MessagesController: UITableViewController {
         
         containerView.addSubview(nameLabel)
         nameLabel.text = user.name
-        nameLabel.textColor = UIColor.init(r: 90, g: 151, b: 213)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         //need x,y,width,height anchors
         nameLabel.leftAnchor.constraint(equalTo: profileImageView.rightAnchor, constant: 8).isActive = true
@@ -276,32 +269,22 @@ class MessagesController: UITableViewController {
         
         containerView.centerXAnchor.constraint(equalTo: titleView.centerXAnchor).isActive = true
         containerView.centerYAnchor.constraint(equalTo: titleView.centerYAnchor).isActive = true
-        navigationController?.hidesBarsOnSwipe = true
+        
         self.navigationItem.titleView = titleView
-        titleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showProfileController)))
-    
-    }
-    
-    func showProfileController() {
-    let viewController = ProfileController()
-    navigationController?.pushViewController(viewController, animated: true)
-    
+        
+        //        titleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showChatController)))
     }
     
     func showChatControllerForUser(_ user: User) {
         let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
         chatLogController.user = user
         navigationController?.pushViewController(chatLogController, animated: true)
-        
-      
     }
     
     func handleLogout() {
         
         do {
-            
-            try! FIRAuth.auth()!.signOut()
-            
+            try FIRAuth.auth()?.signOut()
         } catch let logoutError {
             print(logoutError)
         }
