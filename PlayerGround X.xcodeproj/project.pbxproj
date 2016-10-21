@@ -42,13 +42,13 @@
 		1FE1B9871D542A5F003545ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FE1B9901D542AB9003545ED /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		1FE1B9921D542AC3003545ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
-		1FE1B9941D542AD8003545ED /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		1FE1B9941D542AD8003545ED /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatLogController.swift; path = ../ChatLogController.swift; sourceTree = "<group>"; };
 		1FE1B9961D542AE1003545ED /* ChatMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatMessageCell.swift; path = ../ChatMessageCell.swift; sourceTree = "<group>"; };
 		1FE1B9971D542AE1003545ED /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1FE1B99C1D542AF6003545ED /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		1FE1B99D1D542AF6003545ED /* LoginController+handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LoginController+handler.swift"; sourceTree = "<group>"; };
 		1FE1B99F1D542AF6003545ED /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = ../Message.swift; sourceTree = "<group>"; };
-		1FE1B9A01D542AF6003545ED /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
+		1FE1B9A01D542AF6003545ED /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesController.swift; path = ../MessagesController.swift; sourceTree = "<group>"; };
 		1FE1B9A11D542AF6003545ED /* MessagingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagingExtensions.swift; sourceTree = "<group>"; };
 		1FE1B9A21D542AF6003545ED /* NewMessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		1FE1B9B21D542B12003545ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
@@ -99,6 +99,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		1FABB2661DBAB69500A7C9D9 /* User Messages */ = {
+			isa = PBXGroup;
+			children = (
+				1FE1B9A01D542AF6003545ED /* MessagesController.swift */,
+				1FE1B9941D542AD8003545ED /* ChatLogController.swift */,
+			);
+			name = "User Messages";
+			sourceTree = "<group>";
+		};
 		1FE1B96F1D542A5F003545ED = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +134,7 @@
 				1F9E1E231DBA8DBE00F1175E /* Model */,
 				1F9E1E201DBA8D6900F1175E /* View */,
 				1FE1B9C31D571FE8003545ED /* Helpers */,
+				1FABB2661DBAB69500A7C9D9 /* User Messages */,
 				1FE1B9C01D571F8A003545ED /* Controller */,
 				1FE1B9921D542AC3003545ED /* Assets.xcassets */,
 				1FB6266A1D5D573300D4A283 /* googlesignin.h */,
@@ -139,8 +149,6 @@
 		1FE1B9C01D571F8A003545ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1FE1B9A01D542AF6003545ED /* MessagesController.swift */,
-				1FE1B9941D542AD8003545ED /* ChatLogController.swift */,
 				1FB626651D5D1D4700D4A283 /* UserProfileController.swift */,
 				1FE1B99C1D542AF6003545ED /* LoginController.swift */,
 				1FE1B9A21D542AF6003545ED /* NewMessageController.swift */,
