@@ -10,7 +10,7 @@
 import UIKit
 import Firebase
 
-class NewMessageController: UITableViewController {
+class NewMessageController: UITableViewController, UISearchBarDelegate {
     
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -25,7 +25,6 @@ class NewMessageController: UITableViewController {
         
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
-        searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
@@ -33,13 +32,7 @@ class NewMessageController: UITableViewController {
         fetchUser()
     }
     
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredUsers = users.filter { users in
-            return users.name!.lowercaseString.containsString(searchText.lowercaseString)
-        }
-        
-        tableView.reloadData()
-    }
+    
     
     func fetchUser() {
         FIRDatabase.database().reference().child("users").observe(.childAdded, with: { (snapshot) in
