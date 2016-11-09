@@ -278,6 +278,7 @@ class MessagesController: UITableViewController {
     func showChatControllerForUser(_ user: User) {
         let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
         chatLogController.user = user
+        
         navigationController?.pushViewController(chatLogController, animated: true)
     }
     

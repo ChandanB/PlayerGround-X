@@ -63,7 +63,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         //        collectionView?.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
         collectionView?.alwaysBounceVertical = true
-        collectionView?.backgroundColor = UIColor.white
+        collectionView?.backgroundColor = UIColor.init(r: 184, g: 184, b: 184)
         collectionView?.register(ChatMessageCell.self, forCellWithReuseIdentifier: cellId)
         
         collectionView?.keyboardDismissMode = .interactive
@@ -129,6 +129,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         
         uploadTask.observe(.success) { (snapshot) in
             self.navigationItem.title = self.user?.name
+            
         }
     }
     
@@ -278,8 +279,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
         
         if message.fromId == FIRAuth.auth()?.currentUser?.uid {
             //outgoing blue
-            cell.bubbleView.backgroundColor = ChatMessageCell.blueColor
-            cell.textView.textColor = UIColor.white
+            cell.bubbleView.backgroundColor = UIColor.white
+            cell.textView.textColor = UIColor.black
             cell.profileImageView.isHidden = true
             
             cell.bubbleViewRightAnchor?.isActive = true
@@ -287,8 +288,8 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIColl
             
         } else {
             //incoming gray
-            cell.bubbleView.backgroundColor = UIColor(r: 240, g: 240, b: 240)
-            cell.textView.textColor = UIColor.black
+            cell.bubbleView.backgroundColor = ChatMessageCell.blueColor
+            cell.textView.textColor = UIColor.white
             cell.profileImageView.isHidden = false
             
             cell.bubbleViewRightAnchor?.isActive = false
