@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     switch (lhs, rhs) {
     case let (l?, r?):
@@ -151,6 +152,7 @@ class MessagesController: UITableViewController {
         })
     }
     
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
@@ -169,6 +171,7 @@ class MessagesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let message = messages[(indexPath as NSIndexPath).row]
         
         guard let chatPartnerId = message.chatPartnerId() else {

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+
 class ProfileController: UIViewController, GIDSignInUIDelegate {
     
    var messagesController = MessagesController()

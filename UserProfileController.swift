@@ -13,8 +13,6 @@ import MobileCoreServices
 
 class UserProfileController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
-    
     let cellId = "cellId"
     let backView = UIView()
     

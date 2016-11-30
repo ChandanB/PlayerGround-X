@@ -213,7 +213,7 @@
 				TargetAttributes = {
 					1FE1B9771D542A5F003545ED = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = H3Z7K9ZZE8;
+						DevelopmentTeam = 485WZNYRT6;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -437,6 +437,7 @@
 				CODE_SIGN_ENTITLEMENTS = "PlayerGround X/PlayerGround X.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 485WZNYRT6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -460,6 +461,7 @@
 				CODE_SIGN_ENTITLEMENTS = "PlayerGround X/PlayerGround X.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 485WZNYRT6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
